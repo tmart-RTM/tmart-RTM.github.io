@@ -8,9 +8,9 @@ T-Mart solves the radiative transfer in a 3D ocean-atmosphere system through a M
 ## Links
 
 
-Home page: [https://github.com/yulunwu8/tmart](https://github.com/yulunwu8/tmart)
+Home page: <a href="https://github.com/yulunwu8/tmart" target="_blank">https://github.com/yulunwu8/tmart</a>
 
-User guide: [https://tmart-rtm.github.io](https://tmart-rtm.github.io) 
+User guide: <a href="https://tmart-rtm.github.io" target="_blank">https://tmart-rtm.github.io</a>
 
 ## Installation 
 
