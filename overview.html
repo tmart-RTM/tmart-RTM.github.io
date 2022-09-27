@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; T-Mart 1.0.0 documentation</title>
+  <title>Overview &mdash; T-Mart 1.2.1 documentation</title>
   
 
   
@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Instruction" href="instruction.html" />
+    <link rel="next" title="Instruction - Basic" href="ins_basic.html" />
     <link rel="prev" title="Welcome to T-Mart’s documentation!" href="index.html" /> 
 </head>
 
@@ -88,13 +88,14 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#t-mart-topography-adjusted-monte-carlo-adjacency-effect-radiative-transfer-code">T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#required-libraries">Required Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#input">Input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#output">Output</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="instruction.html">Instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ins_basic.html">Instruction - Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ins_advanced.html">Instruction - Advanced</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tmart.html">Parameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docu.html">Document</a></li>
 </ul>
 
             
@@ -161,53 +162,75 @@
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="t-mart-topography-adjusted-monte-carlo-adjacency-effect-radiative-transfer-code">
 <h2>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code<a class="headerlink" href="#t-mart-topography-adjusted-monte-carlo-adjacency-effect-radiative-transfer-code" title="Permalink to this headline">¶</a></h2>
-<p>This code models the radiative transfer in a 3D atmosphere-ocean system. In addition to the Monte Carlo-based radiative transfer functions, there are three environmental components in the code: atmosphere, water and land.</p>
+<p>T-Mart solves the radiative transfer in a 3D ocean-atmosphere system through a Monte-Carlo approach. T-Mart features arbitrary surface models which allow simulations of the adjacnecy effect in aquatic remote sensing.</p>
+<p>In addition to the radiative transfer solver, there are three components in the code: atmosphere, water and land:</p>
 <ul class="simple">
 <li><p>The atmosphere consists of layers with various scattering and absorbing properties.</p></li>
 <li><p>Land is assumed to be Lambertian. The topography of land is modelled by triangulating the pixels of an input DEM.</p></li>
-<li><p>Water has three reflectance properties: 1) water-leaving reflectance, 2) white-caps and 3) surface reflectance (sky glint and sun glint). 1 and 2 are assumed to be Lambertian, 3 is calculated through Cox&amp;Munk slope statistics.</p></li>
+<li><p>Water has three reflectance properties: 1) water-leaving reflectance, 2) white-caps and 3) glint reflectance. 1 and 2 are assumed to be Lambertian, 3 is calculated through Cox&amp;Munk slope statistics.</p></li>
 </ul>
-<p>Yulun Wu | March 13, 2022 | Requested by Liquid Geomatics | For any questions, please email ywu146&#64;uottawa.ca</p>
+<p>Many of T-Mart’s input are from Py6S. Users are assumed to have basic understanding of numpy arrays and radiative transfer.</p>
+<p>Yulun Wu | September 21, 2022 | ywu146&#64;uottawa.ca</p>
 </div>
 <div class="section" id="required-libraries">
 <h2>Required Libraries<a class="headerlink" href="#required-libraries" title="Permalink to this headline">¶</a></h2>
-<p>T-Mart is written in Python 3, and it requires: Py6S, matplotlib, pathos, multiprocessing, numpy, pandas.</p>
+<p>T-Mart is written in Python 3, and it requires Py6S, numpy, pandas, scipy, pathos, and matplotlib.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>1 - Create a conda environment and activate it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">tmart</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.9</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">tmart</span>
+</pre></div>
+</div>
+<p>2 - Install dependencies:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">Py6S</span> <span class="n">numpy</span> <span class="n">pandas</span> <span class="n">scipy</span> <span class="n">pathos</span> <span class="n">matplotlib</span>
+</pre></div>
+</div>
+<p>3 - Install tmart:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">tmart</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="input">
 <h2>Input<a class="headerlink" href="#input" title="Permalink to this headline">¶</a></h2>
-<p><strong>Essential</strong></p>
+<p><strong>Essential inputs</strong></p>
 <ul class="simple">
 <li><p>Wavelength: wavelength in nm.</p></li>
 <li><p>Surface:</p>
 <ul>
-<li><p>DEM: Digital Elevation Model, the elevation of pixels in this run.</p></li>
+<li><p>DEM: Digital Elevation Model, the elevation of pixels in a run.</p></li>
 <li><p>Cell size: the width and length of each pixel.</p></li>
-<li><p>Reflectance: reflectance of land or water-leaving reflectance of water, Lambertian.</p></li>
-<li><p>is_water: which pixels are water pixels.</p></li>
+<li><p>Reflectance: reflectance of land or water-leaving reflectance of water, assumed to be Lambertian.</p></li>
+<li><p>is_water: specify which pixels are water pixels.</p></li>
 <li><p>Background information: the elevation and reflectance of the background beyond the range of the pixels.</p></li>
 </ul>
 </li>
 <li><p>Atmosphere profile: choose from Py6S.</p></li>
-<li><p>n_photon: number of photons used in each run, default 1000. Recommend 10,000 to 100,000.</p></li>
+<li><p>n_photon: number of photons used in each run, default 10,000. A greater value (e.g., 100,000) makes the run slower but with higher accuracy.</p></li>
 <li><p>Geometry: photon starting position, solar angle, viewing angle.</p></li>
+</ul>
+<p><strong>Optional inputs</strong></p>
+<ul class="simple">
+<li><p>Atmosphere:</p>
+<ul>
+<li><p>AOT550: aerosol optical thickness at 550nm.</p></li>
+<li><p>Aerosol model: choose from Py6S</p></li>
+<li><p>Aerosol scale height: default 2 km.</p></li>
+<li><p>n_layers: number of atmospheric layers: default 10. Having more layers may slightly increases the computation time</p></li>
+</ul>
+</li>
+<li><p>Water:</p>
+<ul>
+<li><p>Wind: wind speed and direction</p></li>
+<li><p>Water salinity: in unit of parts per thousand, default 0.</p></li>
+<li><p>Water temperature: in Celsius, default 25.</p></li>
+</ul>
+</li>
 </ul>
 <p><strong>Geometry</strong></p>
 <p>The geometry in T-Mart follows the diagram below.</p>
 <p><img alt="Geometry" src="_images/geometry.png" /></p>
-<p><strong>Optional</strong></p>
-<ul class="simple">
-<li><p>Atmosphere</p>
-<ul>
-<li><p>AOT550: aerosol optical thickness at 550nm.</p></li>
-<li><p>Aerosol_SPF: normalized aerosol scattering phase function.</p></li>
-<li><p>Aerosol scale height: default 2 km.</p></li>
-<li><p>n_layers: number of atmospheric layers: default 10. Having more layers may slightly increase the computation time</p></li>
-</ul>
-</li>
-<li><p>Wind speed</p></li>
-<li><p>Water salinity: in unit of parts per thousand, default 0.</p></li>
-<li><p>Water temperature: in Celsius, default 25.</p></li>
-</ul>
 </div>
 <div class="section" id="output">
 <h2>Output<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h2>
@@ -217,6 +240,7 @@
 <li><p>Environmental reflectance</p></li>
 <li><p>Direct reflectance</p></li>
 </ul>
+<p>Environmental and direct reflectances can be further divided into contributions from water-leaving, water-specular, water-whitecap and land reflectances.</p>
 </div>
 </div>
 
@@ -228,7 +252,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="instruction.html" class="btn btn-neutral float-right" title="Instruction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="ins_basic.html" class="btn btn-neutral float-right" title="Instruction - Basic" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Welcome to T-Mart’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

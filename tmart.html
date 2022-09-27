@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Parameters &mdash; T-Mart 1.0.0 documentation</title>
+  <title>Parameters &mdash; T-Mart 1.2.1 documentation</title>
   
 
   
@@ -38,8 +38,7 @@
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Document" href="docu.html" />
-    <link rel="prev" title="Instruction" href="instruction.html" /> 
+    <link rel="prev" title="Instruction - Advanced" href="ins_advanced.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,7 +85,8 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="instruction.html">Instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ins_basic.html">Instruction - Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ins_advanced.html">Instruction - Advanced</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Parameters</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-tmart.Tmart">Tmart Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-tmart.Atmosphere">Atmosphere Class</a></li>
@@ -94,7 +94,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#module-tmart.tm_calcref">calcref Function</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="docu.html">Document</a></li>
 </ul>
 
             
@@ -231,17 +230,25 @@ To observe the photon movements, mostly for debugging purposes.</p>
 <p>Arguments:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">sun_dir</span></code> – Solar angle, in [Zenith, Azimuth], relative to the target.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">target_pt_direction</span></code> – Where to shoot photon from the sensor, AKA viewing angle, in [Zenith, Azimuth], relative to the sensor.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">target_pt_direction</span></code> – Photon’s initial moving direction’, AKA viewing angle, in [Zenith, Azimuth], relative to the sensor.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sensor_coords</span></code> – Where the sensor is, in [X, Y, Z], unit in meters.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pixel</span></code> – The target pixel to shoot photons. Parallel light rays will hit random points within the square pixel.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">target_coords</span></code> – ??? Where the photon will land on the surface, only [X, Y] needed, [Z] is automatically adjusted.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">target_coords</span></code> – Where the photon will land on the surface, only [X, Y] needed, [Z] is automatically adjusted.</p></li>
 </ul>
 <p>Example usage:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>my_tmart.set_geometry(sensor_coords=[51,50,130_000], 
-            target_pt_direction=[180,0],
-            sun_dir=[0,0])
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_tmart</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="n">sensor_coords</span><span class="o">=</span><span class="p">[</span><span class="mi">51</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">130_000</span><span class="p">],</span> 
+                      <span class="n">target_pt_direction</span><span class="o">=</span><span class="p">[</span><span class="mi">180</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                      <span class="n">sun_dir</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
 
-??? Add the two other methods 
+<span class="c1"># sensor_coords can be replaced by pixel or target_coords</span>
+
+<span class="n">my_tmart</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="n">target_pt_direction</span><span class="o">=</span><span class="p">[</span><span class="mi">170</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                      <span class="n">target_coords</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span> 
+                      <span class="n">sun_dir</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>        
+
+<span class="n">my_tmart</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="n">target_pt_direction</span><span class="o">=</span><span class="p">[</span><span class="mi">170</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                      <span class="n">pixel</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> 
+                      <span class="n">sun_dir</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>     
 </pre></div>
 </div>
 </dd></dl>
@@ -274,6 +281,7 @@ To observe the photon movements, mostly for debugging purposes.</p>
 <p>Example usage:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_tmart</span><span class="o">.</span><span class="n">set_wind</span><span class="p">(</span><span class="n">wind_speed</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">my_tmart</span><span class="o">.</span><span class="n">set_wind</span><span class="p">(</span><span class="n">wind_speed</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">wind_azi_avg</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">wind_dir</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">my_tmart</span><span class="o">.</span><span class="n">set_wind</span><span class="p">(</span><span class="n">wind_speed</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">wind_azi_avg</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -294,20 +302,26 @@ To observe the photon movements, mostly for debugging purposes.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">aot550</span></code> – AOT at 550nm.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">aerosol_type</span></code> – ‘BiomassBurning’, ‘Continental’, ‘Desert’, ‘Maritime’, ‘Stratospheric’ or ‘Urban’, as provided by 6S.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">wl</span></code> – central wavelength in nm.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">n_layers</span></code> – Number of atmosphere layers to use</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_layers</span></code> – Number of atmosphere layers to use. Default 20.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">AEROSOL_SCALE_HEIGHT</span></code> – Aerosol scale height in km. Default 2km.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">no_absorption</span></code> – Boolean, if yes -&gt; remove all absorption.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">specify_ot_rayleigh</span></code> – Specify rayleigh optical thickness, only for testing.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">specify_abs</span></code> – Specifiy absorption optical thickness, only for testing.</p></li>
 </ul>
-<p>Example usage:: ### EDIT!!!</p>
-<blockquote>
-<div><p>from Py6S.Params.atmosprofile import AtmosProfile</p>
-<p>atm_profile = AtmosProfile.PredefinedType(AtmosProfile.MidlatitudeSummer) 
-aerosol_SPF = ‘tmart/ancillary/aerosol_maritime_SPF.csv’ 
-aot550 = 0.1
-my_atm = tmart.Atmosphere(atm_profile, aot550, aerosol_SPF)</p>
-</div></blockquote>
+<p>Example usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">Py6S.Params.atmosprofile</span> <span class="kn">import</span> <span class="n">AtmosProfile</span>
+
+<span class="c1"># Atmophere profile comes from 6S</span>
+<span class="n">atm_profile</span> <span class="o">=</span> <span class="n">AtmosProfile</span><span class="o">.</span><span class="n">PredefinedType</span><span class="p">(</span><span class="n">AtmosProfile</span><span class="o">.</span><span class="n">MidlatitudeSummer</span><span class="p">)</span> 
+<span class="n">aerosol_type</span> <span class="o">=</span> <span class="s1">&#39;Maritime&#39;</span> 
+<span class="n">aot550</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">n_layers</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">aerosol_scale_height</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># Unless you have a reason, don&#39;t change this</span>
+
+<span class="c1"># Synthesize an atmosphere object    </span>
+<span class="n">my_atm</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">Atmosphere</span><span class="p">(</span><span class="n">atm_profile</span><span class="p">,</span> <span class="n">aot550</span><span class="p">,</span> <span class="n">aerosol_type</span><span class="p">,</span> <span class="n">n_layers</span><span class="p">,</span> <span class="n">aerosol_scale_height</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
@@ -317,23 +331,27 @@ my_atm = tmart.Atmosphere(atm_profile, aot550, aerosol_SPF)</p>
 <dt class="sig sig-object py" id="tmart.Surface.SpectralSurface">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tmart.Surface.</span></span><span class="sig-name descname"><span class="pre">SpectralSurface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">land_cover</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.Surface.SpectralSurface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Create an object to capture the spectral reflectance of surfaces when looping wavelengths.</p>
+<p>Create an object to capture the spectral reflectance of surfaces when looping wavelengths. This can be used as input to reflectance in the Surface object.</p>
 <p>Arguments:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">land_cover</span></code> – Text, currently support soil (general), vegetation (general), water (general), water_chl1 ([chla]=1).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">land_cover</span></code> – Text, currently support ‘soil’, ‘vegetation’, ‘water’ and ‘water_chl1’ ([chla]=1).</p></li>
 </ul>
 <p>Example usage:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create object</span>
-<span class="n">water</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">spectral_surface</span><span class="p">(</span><span class="s1">&#39;water_chl1&#39;</span><span class="p">)</span>
+<span class="n">water</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">SpectralSurface</span><span class="p">(</span><span class="s1">&#39;water_chl1&#39;</span><span class="p">)</span>
 
 <span class="c1"># Find spectral reflectance at 400nm</span>
 <span class="n">water</span><span class="o">.</span><span class="n">wl</span><span class="p">(</span><span class="mi">400</span><span class="p">)</span>
+
+<span class="c1"># Create a spectral surface in a numpy array </span>
+<span class="n">wl</span> <span class="o">=</span> <span class="mi">400</span> <span class="c1"># your variable in a loop</span>
+<span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">water</span><span class="o">.</span><span class="n">wl</span><span class="p">(</span><span class="n">wl</span><span class="p">))</span>
 </pre></div>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="tmart.Surface.SpectralSurface.wl">
 <span class="sig-name descname"><span class="pre">wl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wavelength</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.Surface.SpectralSurface.wl" title="Permalink to this definition">¶</a></dt>
-<dd><p>See above.</p>
+<dd><p>Specify the wavelength of interest in nm and returns the reflectance of the surface.</p>
 </dd></dl>
 
 </dd></dl>
@@ -342,7 +360,7 @@ my_atm = tmart.Atmosphere(atm_profile, aot550, aerosol_SPF)</p>
 <dt class="sig sig-object py" id="tmart.Surface.Surface">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tmart.Surface.</span></span><span class="sig-name descname"><span class="pre">Surface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DEM</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reflectance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">isWater</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cell_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alignPixels</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.Surface.Surface" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Create an Atmosphere object.</p>
+<p>Create an Surface object.</p>
 <p>Arguments:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">DEM</span></code> – Numpy array, Digital Elevation Model, the elevation of pixels.</p></li>
@@ -424,10 +442,8 @@ If 2 surfaces: the first background is the one closer to [0,0]</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="docu.html" class="btn btn-neutral float-right" title="Document" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-      
-        <a href="instruction.html" class="btn btn-neutral float-left" title="Instruction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ins_advanced.html" class="btn btn-neutral float-left" title="Instruction - Advanced" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

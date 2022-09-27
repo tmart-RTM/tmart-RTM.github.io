@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>tmart &mdash; T-Mart 1.0.0 documentation</title>
+  <title>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code &mdash; T-Mart 1.2.1 documentation</title>
   
 
   
@@ -84,9 +84,9 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="instruction.html">Instruction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ins_basic.html">Instruction - Basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ins_advanced.html">Instruction - Advanced</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tmart.html">Parameters</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docu.html">Document</a></li>
 </ul>
 
             
@@ -132,7 +132,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>tmart</li>
+      <li>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -149,9 +149,103 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="tmart">
-<h1>tmart<a class="headerlink" href="#tmart" title="Permalink to this headline">¶</a></h1>
-<p>A private repository.</p>
+  <div class="section" id="t-mart-topography-adjusted-monte-carlo-adjacency-effect-radiative-transfer-code">
+<h1>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code<a class="headerlink" href="#t-mart-topography-adjusted-monte-carlo-adjacency-effect-radiative-transfer-code" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>T-Mart solves the radiative transfer in a 3D ocean-atmosphere system through a Monte-Carlo approach. T-Mart features arbitrary surface models which allow simulations of the adjacnecy effect in aquatic remote sensing.</p>
+</div>
+<div class="section" id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<p>Home page: <a class="reference external" href="https://github.com/yulunwu8/tmart">https://github.com/yulunwu8/tmart</a></p>
+<p>User guide: <a class="reference external" href="https://tmart-rtm.github.io">https://tmart-rtm.github.io</a></p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>1 - Create a conda environment and activate it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">tmart</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.9</span>
+<span class="n">conda</span> <span class="n">activate</span> <span class="n">tmart</span>
+</pre></div>
+</div>
+<p>2 - Install dependencies:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">Py6S</span> <span class="n">numpy</span> <span class="n">pandas</span> <span class="n">scipy</span> <span class="n">pathos</span> <span class="n">matplotlib</span>
+</pre></div>
+</div>
+<p>3 - Install tmart:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">tmart</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="test-run">
+<h2>Test Run<a class="headerlink" href="#test-run" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tmart</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">Py6S.Params.atmosprofile</span> <span class="kn">import</span> <span class="n">AtmosProfile</span>
+
+<span class="c1"># Specify wavelength in nm</span>
+<span class="n">wl</span> <span class="o">=</span> <span class="mi">400</span>
+
+<span class="c1"># DEM and reflectance ###</span>
+<span class="n">image_DEM</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]])</span> <span class="c1"># in meters</span>
+<span class="n">image_reflectance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">],[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">]])</span> <span class="c1"># unitless     </span>
+<span class="n">image_isWater</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">image_DEM</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># 1 is water, 0 is land</span>
+<span class="n">image_isWater</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+
+
+<span class="c1"># Synthesize a surface object</span>
+<span class="n">my_surface</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">Surface</span><span class="p">(</span><span class="n">DEM</span> <span class="o">=</span> <span class="n">image_DEM</span><span class="p">,</span>
+                           <span class="n">reflectance</span> <span class="o">=</span> <span class="n">image_reflectance</span><span class="p">,</span>
+                           <span class="n">isWater</span> <span class="o">=</span> <span class="n">image_isWater</span><span class="p">,</span>
+                           <span class="n">cell_size</span> <span class="o">=</span> <span class="mi">10_000</span><span class="p">)</span>  
+                               
+<span class="c1">### Atmosphere ###</span>
+<span class="n">atm_profile</span> <span class="o">=</span> <span class="n">AtmosProfile</span><span class="o">.</span><span class="n">PredefinedType</span><span class="p">(</span><span class="n">AtmosProfile</span><span class="o">.</span><span class="n">MidlatitudeSummer</span><span class="p">)</span> 
+<span class="n">aerosol_type</span> <span class="o">=</span> <span class="s1">&#39;Maritime&#39;</span>  
+<span class="n">my_atm</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">Atmosphere</span><span class="p">(</span><span class="n">atm_profile</span><span class="p">,</span> <span class="n">aot550</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">aerosol_type</span> <span class="o">=</span> <span class="s1">&#39;Maritime&#39;</span>  <span class="p">)</span>
+
+<span class="c1">### Running T-Mart ###</span>
+<span class="n">my_tmart</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">Tmart</span><span class="p">(</span><span class="n">Surface</span> <span class="o">=</span> <span class="n">my_surface</span><span class="p">,</span> <span class="n">Atmosphere</span><span class="o">=</span> <span class="n">my_atm</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">my_tmart</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="n">sensor_coords</span><span class="o">=</span><span class="p">[</span><span class="mi">51</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">130_000</span><span class="p">],</span> 
+                      <span class="n">target_pt_direction</span><span class="o">=</span><span class="p">[</span><span class="mi">180</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                      <span class="n">sun_dir</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">my_tmart</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">wl</span><span class="o">=</span><span class="n">wl</span><span class="p">,</span> <span class="n">band</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_photon</span><span class="o">=</span><span class="mi">10_000</span><span class="p">,</span><span class="n">nc</span><span class="o">=</span> <span class="mi">10</span><span class="p">,</span><span class="n">njobs</span><span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+<span class="c1"># Calculate reflectances using recorded photon information </span>
+<span class="n">R</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">calc_ref</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">R</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="s1">&#39;     &#39;</span> <span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>Output should be similar to below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">=========</span> <span class="n">Initiating</span> <span class="n">T</span><span class="o">-</span><span class="n">Mart</span> <span class="o">=========</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">photons</span><span class="p">:</span> <span class="mi">10000</span>
+<span class="n">Using</span> <span class="mi">10</span> <span class="n">core</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">Number</span> <span class="n">of</span> <span class="n">job</span><span class="p">(</span><span class="n">s</span><span class="p">):</span> <span class="mi">100</span>
+<span class="n">Wavelength</span><span class="p">:</span> <span class="mi">400</span>
+<span class="n">target_pt_direction</span><span class="p">:</span> <span class="p">[</span><span class="mi">180</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">sun_dir</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="o">=====================================</span>
+<span class="n">Tasks</span> <span class="n">remaining</span> <span class="o">=</span> <span class="mi">102</span>
+<span class="n">Tasks</span> <span class="n">remaining</span> <span class="o">=</span> <span class="mi">72</span>
+<span class="n">Tasks</span> <span class="n">remaining</span> <span class="o">=</span> <span class="mi">42</span>
+<span class="n">Tasks</span> <span class="n">remaining</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="o">=====================================</span>
+<span class="n">Calculating</span> <span class="n">reflectances</span><span class="o">...</span>
+<span class="n">R_atm</span>       <span class="mf">0.12576169910706145</span>
+<span class="n">R_dir</span>       <span class="mf">0.11418041191253057</span>
+<span class="n">R_env</span>       <span class="mf">0.013670152459801528</span>
+<span class="n">R_total</span>       <span class="mf">0.25361226347939353</span>
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="other">
+<h2>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h2>
+<p>For questions and suggestions (which I’m always open to!), please email <span class="xref myst">ywu146&#64;uottawa.ca</span></p>
+</div>
 </div>
 
 
