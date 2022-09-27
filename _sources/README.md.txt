@@ -106,4 +106,4 @@ R_total       0.25361226347939353
 ## Other
 
 
-For questions and suggestions (which I'm always open to!), please email [ywu146@uottawa.ca](ywu146@uottawa.ca)
+For questions and suggestions (which I'm always open to!), please email [yulunwu8@gmail.com](mailto:yulunwu8@gmail.com)
