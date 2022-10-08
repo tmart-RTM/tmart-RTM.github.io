@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Parameters &mdash; T-Mart 1.2.2 documentation</title>
+  <title>Parameters &mdash; T-Mart 1.2.5 documentation</title>
   
 
   
@@ -411,7 +411,7 @@ If 2 surfaces: the first background is the one closer to [0,0]</p>
 <span id="calcref-function"></span><h2>calcref Function<a class="headerlink" href="#module-tmart.tm_calcref" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="tmart.tm_calcref.calc_ref">
-<span class="sig-prename descclassname"><span class="pre">tmart.tm_calcref.</span></span><span class="sig-name descname"><span class="pre">calc_ref</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_photon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.tm_calcref.calc_ref" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">tmart.tm_calcref.</span></span><span class="sig-name descname"><span class="pre">calc_ref</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_photon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_only</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.tm_calcref.calc_ref" title="Permalink to this definition">¶</a></dt>
 <dd><p>Analyze the results of T-Mart and calculate reflectances.</p>
 <p>Arguments:</p>
 <ul class="simple">
@@ -424,6 +424,7 @@ If 2 surfaces: the first background is the one closer to [0,0]</p>
 </dl>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">detail</span></code> – differentiate coxmunk, whitecap, water-leaving and land contributions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">total_only</span></code> – only return total TOA reflectance, this is much faster but gives less details.</p></li>
 </ul>
 <p>Output:</p>
 <ul class="simple">
