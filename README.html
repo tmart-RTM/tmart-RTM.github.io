@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code &mdash; T-Mart 1.2.1 documentation</title>
+  <title>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code &mdash; T-Mart 1.2.2 documentation</title>
   
 
   
@@ -190,7 +190,6 @@
 <span class="n">image_reflectance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">],[</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.1</span><span class="p">]])</span> <span class="c1"># unitless     </span>
 <span class="n">image_isWater</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">image_DEM</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="c1"># 1 is water, 0 is land</span>
 <span class="n">image_isWater</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-
 
 <span class="c1"># Synthesize a surface object</span>
 <span class="n">my_surface</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">Surface</span><span class="p">(</span><span class="n">DEM</span> <span class="o">=</span> <span class="n">image_DEM</span><span class="p">,</span>

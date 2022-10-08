@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Parameters &mdash; T-Mart 1.2.1 documentation</title>
+  <title>Parameters &mdash; T-Mart 1.2.2 documentation</title>
   
 
   
@@ -230,7 +230,13 @@ To observe the photon movements, mostly for debugging purposes.</p>
 <p>Arguments:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">sun_dir</span></code> – Solar angle, in [Zenith, Azimuth], relative to the target.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">target_pt_direction</span></code> – Photon’s initial moving direction’, AKA viewing angle, in [Zenith, Azimuth], relative to the sensor.</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">target_pt_direction</span></code> – Photon’s initial moving direction’, AKA viewing angle, in [Zenith, Azimuth], relative to the sensor. </dt><dd><ul>
+<li><p>Alternative input: ‘lambertian_up’. This can only be used with <code class="docutils literal notranslate"><span class="pre">sensor_coords</span></code>. The initial direction will be a random direction up following a Lambertian distribution for each of the photons. This is used in calculating irradiance.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sensor_coords</span></code> – Where the sensor is, in [X, Y, Z], unit in meters.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pixel</span></code> – The target pixel to shoot photons. Parallel light rays will hit random points within the square pixel.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">target_coords</span></code> – Where the photon will land on the surface, only [X, Y] needed, [Z] is automatically adjusted.</p></li>
