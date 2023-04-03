@@ -1,6 +1,6 @@
 # tmart-RTM.github.io
 
-User guide supporting T-Mart radiative transfer code
+User guide supporting T-Mart radiative transfer code and adjacency-effect correction
 
 Home page: <a href="https://github.com/yulunwu8/tmart" target="_blank">https://github.com/yulunwu8/tmart</a>
 

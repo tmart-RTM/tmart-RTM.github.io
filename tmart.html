@@ -5,10 +5,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Parameters &mdash; T-Mart 1.2.10 documentation</title>
+  <title>Parameters &mdash; T-Mart 1.3.0 documentation</title>
   
 
   
@@ -22,9 +23,8 @@
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -88,10 +88,36 @@
 <li class="toctree-l1"><a class="reference internal" href="ins_basic.html">Instruction - Basic</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ins_advanced.html">Instruction - Advanced</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Parameters</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-tmart.Tmart">Tmart Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-tmart.Atmosphere">Atmosphere Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-tmart.Surface">Surface Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-tmart.tm_calcref">calcref Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-tmart.Tmart">Tmart Class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tmart.Tmart.Tmart"><code class="docutils literal notranslate"><span class="pre">Tmart</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tmart.Tmart.Tmart.run"><code class="docutils literal notranslate"><span class="pre">Tmart.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tmart.Tmart.Tmart.run_plot"><code class="docutils literal notranslate"><span class="pre">Tmart.run_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tmart.Tmart.Tmart.set_geometry"><code class="docutils literal notranslate"><span class="pre">Tmart.set_geometry()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tmart.Tmart.Tmart.set_water"><code class="docutils literal notranslate"><span class="pre">Tmart.set_water()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tmart.Tmart.Tmart.set_wind"><code class="docutils literal notranslate"><span class="pre">Tmart.set_wind()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-tmart.Atmosphere">Atmosphere Class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tmart.Atmosphere.Atmosphere"><code class="docutils literal notranslate"><span class="pre">Atmosphere</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-tmart.Surface">Surface Class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tmart.Surface.SpectralSurface"><code class="docutils literal notranslate"><span class="pre">SpectralSurface</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tmart.Surface.SpectralSurface.wl"><code class="docutils literal notranslate"><span class="pre">SpectralSurface.wl()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#tmart.Surface.Surface"><code class="docutils literal notranslate"><span class="pre">Surface</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tmart.Surface.Surface.set_background"><code class="docutils literal notranslate"><span class="pre">Surface.set_background()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-tmart.tm_calcref">calcref Function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tmart.tm_calcref.calc_ref"><code class="docutils literal notranslate"><span class="pre">calc_ref()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -156,14 +182,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="parameters">
-<h1>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-tmart.Tmart">
-<span id="tmart-class"></span><h2>Tmart Class<a class="headerlink" href="#module-tmart.Tmart" title="Permalink to this headline">¶</a></h2>
+  <section id="parameters">
+<h1>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h1>
+<section id="module-tmart.Tmart">
+<span id="tmart-class"></span><h2>Tmart Class<a class="headerlink" href="#module-tmart.Tmart" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="tmart.Tmart.Tmart">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tmart.Tmart.</span></span><span class="sig-name descname"><span class="pre">Tmart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Atmosphere</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shadow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">VROOM</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.Tmart.Tmart" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">tmart.Tmart2.Tmart2</span></code></p>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Tmart2</span></code></p>
 <p>Create a Tmart object that does radiative transfer modelling.</p>
 <p>Arguments:</p>
 <ul class="simple">
@@ -178,7 +204,7 @@
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="tmart.Tmart.Tmart.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_photon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">njobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">80</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_on</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_flux</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.Tmart.Tmart.run" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_photon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">njobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_on</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_flux</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.Tmart.Tmart.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run with multiple processing</p>
 <p>Arguments:</p>
 <ul class="simple">
@@ -294,12 +320,12 @@ To observe the photon movements, mostly for debugging purposes.</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="module-tmart.Atmosphere">
-<span id="atmosphere-class"></span><h2>Atmosphere Class<a class="headerlink" href="#module-tmart.Atmosphere" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-tmart.Atmosphere">
+<span id="atmosphere-class"></span><h2>Atmosphere Class<a class="headerlink" href="#module-tmart.Atmosphere" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="tmart.Atmosphere.Atmosphere">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tmart.Atmosphere.</span></span><span class="sig-name descname"><span class="pre">Atmosphere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atm_profile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aot550</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aerosol_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Maritime'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AEROSOL_SCALE_HEIGHT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_absorption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">specify_ot_rayleigh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">specify_abs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.Atmosphere.Atmosphere" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tmart.Atmosphere.</span></span><span class="sig-name descname"><span class="pre">Atmosphere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atm_profile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aot550</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">aerosol_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Maritime'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_layers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AEROSOL_SCALE_HEIGHT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">no_absorption</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">specify_ot_rayleigh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">specify_abs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.Atmosphere.Atmosphere" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Create an Atmosphere object that is wavelength independent. I.e., a wavelength-dependent atmosphere is generated every time TMart is run.</p>
 <p>Arguments:</p>
@@ -330,9 +356,9 @@ To observe the photon movements, mostly for debugging purposes.</p>
 </div>
 </dd></dl>
 
-</div>
-<div class="section" id="module-tmart.Surface">
-<span id="surface-class"></span><h2>Surface Class<a class="headerlink" href="#module-tmart.Surface" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-tmart.Surface">
+<span id="surface-class"></span><h2>Surface Class<a class="headerlink" href="#module-tmart.Surface" title="Permalink to this heading">¶</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="tmart.Surface.SpectralSurface">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tmart.Surface.</span></span><span class="sig-name descname"><span class="pre">SpectralSurface</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">land_cover</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.Surface.SpectralSurface" title="Permalink to this definition">¶</a></dt>
@@ -406,9 +432,9 @@ If 2 surfaces: the first background is the one closer to [0,0]</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="module-tmart.tm_calcref">
-<span id="calcref-function"></span><h2>calcref Function<a class="headerlink" href="#module-tmart.tm_calcref" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="module-tmart.tm_calcref">
+<span id="calcref-function"></span><h2>calcref Function<a class="headerlink" href="#module-tmart.tm_calcref" title="Permalink to this heading">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="tmart.tm_calcref.calc_ref">
 <span class="sig-prename descclassname"><span class="pre">tmart.tm_calcref.</span></span><span class="sig-name descname"><span class="pre">calc_ref</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_photon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detail</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.tm_calcref.calc_ref" title="Permalink to this definition">¶</a></dt>
@@ -431,8 +457,8 @@ If 2 surfaces: the first background is the one closer to [0,0]</p>
 </div>
 </dd></dl>
 
-<span class="target" id="module-tmart"></span></div>
-</div>
+<span class="target" id="module-tmart"></span></section>
+</section>
 
 
            </div>

@@ -12,30 +12,34 @@ Home page: <a href="https://github.com/yulunwu8/tmart" target="_blank">https://g
 
 User guide: <a href="https://tmart-rtm.github.io" target="_blank">https://tmart-rtm.github.io</a>
 
+## Publication
+
+Wu, Y., Knudby, A., & Lapen, D. (2023). Topography-Adjusted Monte Carlo Simulation of the Adjacency Effect in Remote Sensing of Coastal and Inland Waters. *Journal of Quantitative Spectroscopy and Radiative Transfer*, 108589. <a href="https://doi.org/10.1016/j.jqsrt.2023.108589" target="_blank">https://doi.org/10.1016/j.jqsrt.2023.108589</a>
+
 ## Installation 
 
 1 - Create a conda environment and activate it: 
 
-```
+```bash
 conda create --name tmart python=3.9
 conda activate tmart
 ```
 
 2 - Install dependencies: 
 
-```
-conda install -c conda-forge Py6S numpy pandas scipy pathos matplotlib
+```bash
+conda install -c conda-forge Py6S numpy pandas scipy pathos matplotlib netCDF4
 ```
 
 3 - Install tmart: 
 
-```
+```bash
 pip3 install tmart
 ```
 
 ## Test Run
 
-```
+```python
 import tmart
 import numpy as np
 from Py6S.Params.atmosprofile import AtmosProfile
@@ -104,3 +108,4 @@ R_total       0.20095867961737635
 
 
 For questions and suggestions (which I'm always open to!), please email Yulun at [yulunwu8@gmail.com](mailto:yulunwu8@gmail.com)
+
