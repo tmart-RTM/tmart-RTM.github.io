@@ -5,10 +5,11 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  
+  <meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code &mdash; T-Mart 1.2.10 documentation</title>
+  <title>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code &mdash; T-Mart 1.3.0 documentation</title>
   
 
   
@@ -22,9 +23,8 @@
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -149,36 +149,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="t-mart-topography-adjusted-monte-carlo-adjacency-effect-radiative-transfer-code">
-<h1>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code<a class="headerlink" href="#t-mart-topography-adjusted-monte-carlo-adjacency-effect-radiative-transfer-code" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+  <section id="t-mart-topography-adjusted-monte-carlo-adjacency-effect-radiative-transfer-code">
+<h1>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code<a class="headerlink" href="#t-mart-topography-adjusted-monte-carlo-adjacency-effect-radiative-transfer-code" title="Permalink to this heading">¶</a></h1>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading">¶</a></h2>
 <p>T-Mart solves the radiative transfer in a 3D ocean-atmosphere system through a Monte-Carlo approach. T-Mart features arbitrary surface models which allow simulations of the adjacnecy effect in aquatic remote sensing.</p>
-</div>
-<div class="section" id="links">
-<h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="links">
+<h2>Links<a class="headerlink" href="#links" title="Permalink to this heading">¶</a></h2>
 <p>Home page: <a href="https://github.com/yulunwu8/tmart" target="_blank">https://github.com/yulunwu8/tmart</a></p>
 <p>User guide: <a href="https://tmart-rtm.github.io" target="_blank">https://tmart-rtm.github.io</a></p>
-</div>
-<div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="publication">
+<h2>Publication<a class="headerlink" href="#publication" title="Permalink to this heading">¶</a></h2>
+<p>Wu, Y., Knudby, A., &amp; Lapen, D. (2023). Topography-Adjusted Monte Carlo Simulation of the Adjacency Effect in Remote Sensing of Coastal and Inland Waters. <em>Journal of Quantitative Spectroscopy and Radiative Transfer</em>, 108589. <a href="https://doi.org/10.1016/j.jqsrt.2023.108589" target="_blank">https://doi.org/10.1016/j.jqsrt.2023.108589</a></p>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h2>
 <p>1 - Create a conda environment and activate it:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">tmart</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.9</span>
-<span class="n">conda</span> <span class="n">activate</span> <span class="n">tmart</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>tmart<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
+conda<span class="w"> </span>activate<span class="w"> </span>tmart
 </pre></div>
 </div>
 <p>2 - Install dependencies:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">Py6S</span> <span class="n">numpy</span> <span class="n">pandas</span> <span class="n">scipy</span> <span class="n">pathos</span> <span class="n">matplotlib</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>Py6S<span class="w"> </span>numpy<span class="w"> </span>pandas<span class="w"> </span>scipy<span class="w"> </span>pathos<span class="w"> </span>matplotlib<span class="w"> </span>netCDF4
 </pre></div>
 </div>
 <p>3 - Install tmart:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">tmart</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3<span class="w"> </span>install<span class="w"> </span>tmart
 </pre></div>
 </div>
-</div>
-<div class="section" id="test-run">
-<h2>Test Run<a class="headerlink" href="#test-run" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tmart</span>
+</section>
+<section id="test-run">
+<h2>Test Run<a class="headerlink" href="#test-run" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tmart</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">Py6S.Params.atmosprofile</span> <span class="kn">import</span> <span class="n">AtmosProfile</span>
 
@@ -238,12 +242,12 @@
 
 </pre></div>
 </div>
-</div>
-<div class="section" id="other">
-<h2>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="other">
+<h2>Other<a class="headerlink" href="#other" title="Permalink to this heading">¶</a></h2>
 <p>For questions and suggestions (which I’m always open to!), please email Yulun at <a class="reference external" href="mailto:yulunwu8&#37;&#52;&#48;gmail&#46;com">yulunwu8<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
