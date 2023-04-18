@@ -67,7 +67,7 @@ for wl in wavelengths:
     # Three same-size numpy arrays are needed
     image_DEM = np.full((2, 2), 0) # in meters
     image_reflectance = np.full((2, 2), water.wl(wl)) # unitless       
-    image_isWater = np.full((2, 2), 0) # 1 is water, 0 is land
+    image_isWater = np.full((2, 2), 1) # 1 is water, 0 is land
     
     # pixel width and length, in meters 
     cell_size = 20_000 
@@ -140,6 +140,8 @@ Output:
 
 ![waterTOA](files/waterTOA.png)
 
+There is non-negligible reflectance in the NIR range, and that comes from glint and foam reflectance at a wind speed of 10 m/s.
+
 Note that because T-Mart runs wavelength by wavelength and Monte-Carlo solvers are usually slower than other numerical solvers, the code above may take over 10 minutes to run. 
 
 ## 3D Surfaces 
@@ -211,10 +213,6 @@ Output:
 
 ![waterTOA](files/3D_surface.png)
 
-
-## Adjacency-Effect Modelling 
-
-To be updated. 
 
 ## Useful Information 
 
