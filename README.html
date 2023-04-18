@@ -127,18 +127,20 @@ conda<span class="w"> </span>activate<span class="w"> </span>tmart
 <span class="n">aerosol_type</span> <span class="o">=</span> <span class="s1">&#39;Maritime&#39;</span>  
 <span class="n">my_atm</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">Atmosphere</span><span class="p">(</span><span class="n">atm_profile</span><span class="p">,</span> <span class="n">aot550</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">aerosol_type</span> <span class="o">=</span> <span class="s1">&#39;Maritime&#39;</span>  <span class="p">)</span>
 
-<span class="c1">### Running T-Mart ###</span>
+<span class="c1">### Create T-Mart Object ###</span>
 <span class="n">my_tmart</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">Tmart</span><span class="p">(</span><span class="n">Surface</span> <span class="o">=</span> <span class="n">my_surface</span><span class="p">,</span> <span class="n">Atmosphere</span><span class="o">=</span> <span class="n">my_atm</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">my_tmart</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="n">sensor_coords</span><span class="o">=</span><span class="p">[</span><span class="mi">51</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">130_000</span><span class="p">],</span> 
                       <span class="n">target_pt_direction</span><span class="o">=</span><span class="p">[</span><span class="mi">180</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
                       <span class="n">sun_dir</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
 
-<span class="n">results</span> <span class="o">=</span> <span class="n">my_tmart</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">wl</span><span class="o">=</span><span class="n">wl</span><span class="p">,</span> <span class="n">band</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_photon</span><span class="o">=</span><span class="mi">10_000</span><span class="p">)</span>
-
-<span class="c1"># Calculate reflectances using recorded photon information </span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">calc_ref</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">R</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="s1">&#39;     &#39;</span> <span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="c1">### Multiprocessing needs to be wrapped in &#39;if __name__ == &quot;__main__&quot;:&#39; for Windows systems. This can be ignored for Linux-based systems. </span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">my_tmart</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">wl</span><span class="o">=</span><span class="n">wl</span><span class="p">,</span> <span class="n">band</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_photon</span><span class="o">=</span><span class="mi">10_000</span><span class="p">)</span>
+    
+    <span class="c1"># Calculate reflectances using recorded photon information </span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">calc_ref</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">R</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="s1">&#39;     &#39;</span> <span class="p">,</span> <span class="n">v</span><span class="p">)</span>
 
 </pre></div>
 </div>
