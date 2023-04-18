@@ -50,7 +50,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#built-in-surface-types">Built-in Surface Types</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#case-study-typical-ocean-colour-observation">Case Study: Typical Ocean-Colour Observation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#d-surfaces">3D Surfaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#adjacency-effect-modelling">Adjacency-Effect Modelling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#useful-information">Useful Information</a></li>
 </ul>
 </li>
@@ -144,7 +143,7 @@
     <span class="c1"># Three same-size numpy arrays are needed</span>
     <span class="n">image_DEM</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># in meters</span>
     <span class="n">image_reflectance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">water</span><span class="o">.</span><span class="n">wl</span><span class="p">(</span><span class="n">wl</span><span class="p">))</span> <span class="c1"># unitless       </span>
-    <span class="n">image_isWater</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># 1 is water, 0 is land</span>
+    <span class="n">image_isWater</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span> <span class="c1"># 1 is water, 0 is land</span>
     
     <span class="c1"># pixel width and length, in meters </span>
     <span class="n">cell_size</span> <span class="o">=</span> <span class="mi">20_000</span> 
@@ -215,6 +214,7 @@
 </div>
 <p>Output:</p>
 <p><img alt="waterTOA" src="_images/waterTOA.png" /></p>
+<p>There is non-negligible reflectance in the NIR range, and that comes from glint and foam reflectance at a wind speed of 10 m/s.</p>
 <p>Note that because T-Mart runs wavelength by wavelength and Monte-Carlo solvers are usually slower than other numerical solvers, the code above may take over 10 minutes to run.</p>
 </section>
 <section id="d-surfaces">
@@ -279,10 +279,6 @@
 </div>
 <p>Output:</p>
 <p><img alt="waterTOA" src="_images/3D_surface.png" /></p>
-</section>
-<section id="adjacency-effect-modelling">
-<h2>Adjacency-Effect Modelling<a class="headerlink" href="#adjacency-effect-modelling" title="Permalink to this heading"></a></h2>
-<p>To be updated.</p>
 </section>
 <section id="useful-information">
 <h2>Useful Information<a class="headerlink" href="#useful-information" title="Permalink to this heading"></a></h2>
