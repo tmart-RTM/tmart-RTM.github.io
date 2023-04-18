@@ -135,12 +135,13 @@
                       <span class="n">target_pt_direction</span><span class="o">=</span><span class="p">[</span><span class="mi">180</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
                       <span class="n">sun_dir</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
 
-<span class="n">results</span> <span class="o">=</span> <span class="n">my_tmart</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">wl</span><span class="o">=</span><span class="n">wl</span><span class="p">)</span>
-
-<span class="c1"># Calculate reflectances using recorded photon information </span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">calc_ref</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">R</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="s1">&#39;     &#39;</span> <span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+	<span class="n">results</span> <span class="o">=</span> <span class="n">my_tmart</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">wl</span><span class="o">=</span><span class="n">wl</span><span class="p">)</span>
+	
+	<span class="c1"># Calculate reflectances using recorded photon information </span>
+	<span class="n">R</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">calc_ref</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">R</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+	    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="s1">&#39;     &#39;</span> <span class="p">,</span> <span class="n">v</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The output should be something like:</p>
@@ -420,11 +421,12 @@
 <span class="c1"># Number of photons</span>
 <span class="n">n_photon</span> <span class="o">=</span> <span class="mi">10_000</span>
 
-<span class="n">results</span> <span class="o">=</span> <span class="n">my_tmart</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">wl</span><span class="o">=</span><span class="n">wl</span><span class="p">,</span> <span class="n">band</span><span class="o">=</span><span class="n">band</span><span class="p">,</span> <span class="n">n_photon</span><span class="o">=</span><span class="n">n_photon</span><span class="p">)</span>
-<span class="c1"># Calculate reflectances using recorded photon information </span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">calc_ref</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">R</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="s1">&#39;     &#39;</span> <span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+	<span class="n">results</span> <span class="o">=</span> <span class="n">my_tmart</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">wl</span><span class="o">=</span><span class="n">wl</span><span class="p">,</span> <span class="n">band</span><span class="o">=</span><span class="n">band</span><span class="p">,</span> <span class="n">n_photon</span><span class="o">=</span><span class="n">n_photon</span><span class="p">)</span>
+	<span class="c1"># Calculate reflectances using recorded photon information </span>
+	<span class="n">R</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">calc_ref</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">detail</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">R</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+	    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="s1">&#39;     &#39;</span> <span class="p">,</span> <span class="n">v</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The output should be something like:</p>
