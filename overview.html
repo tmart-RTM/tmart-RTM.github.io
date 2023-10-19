@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Overview &mdash; T-Mart 1.3.6 documentation</title>
+  <title>Overview &mdash; T-Mart 2.0.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -108,16 +108,17 @@
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
 <p>1 - Create a conda environment and activate it:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">tmart</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.9</span>
-<span class="n">conda</span> <span class="n">activate</span> <span class="n">tmart</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>tmart<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
+conda<span class="w"> </span>activate<span class="w"> </span>tmart
 </pre></div>
 </div>
 <p>2 - Install dependencies:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">Py6S</span> <span class="n">numpy</span> <span class="n">pandas</span> <span class="n">scipy</span> <span class="n">pathos</span> <span class="n">matplotlib</span> <span class="n">netCDF4</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>Py6S<span class="w"> </span>scipy<span class="w"> </span>pathos<span class="w"> </span>matplotlib<span class="w"> </span>netCDF4<span class="w"> </span>rasterio<span class="w"> </span>mgrs<span class="w"> </span>geopandas
 </pre></div>
 </div>
+<p>Here the wait time may take up to twenty minutes because some packages require specific versions of dependencies.</p>
 <p>3 - Install tmart:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip3</span> <span class="n">install</span> <span class="n">tmart</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3<span class="w"> </span>install<span class="w"> </span>tmart
 </pre></div>
 </div>
 </section>
