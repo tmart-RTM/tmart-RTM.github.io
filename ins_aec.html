@@ -100,7 +100,7 @@
 </section>
 <section id="overwrite-existing-files">
 <h2>Overwrite Existing Files<a class="headerlink" href="#overwrite-existing-files" title="Permalink to this heading"></a></h2>
-<p>By default, this creates a copy of the original satellite files in the same directory, in a folder that starts with ‘AEC_’. To overwrite the eixsting files, add ‘overwrite=True’ to the arguments:</p>
+<p>By default, this creates a copy of the original satellite files in the same directory, in a new folder that starts with ‘AEC_’. To overwrite the eixsting files, add ‘overwrite=True’ to the arguments:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tmart</span><span class="o">.</span><span class="n">AEC</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -110,14 +110,14 @@
 <p>During the AEC process, a number of files are generated:</p>
 <ul class="simple">
 <li><p><strong>tmart_log_*.txt</strong>: detailed processing information, as printed in the Python console.</p></li>
-<li><p><strong>tmart_atm_info.txt</strong>: atmosphere and aerosol information. This includes aerosol type, angstrom exponent, single scattering albedo, AOT at 550 nm, total column ozone, and total precipitable water vapour.</p></li>
+<li><p><strong>tmart_atm_info.txt</strong>: atmosphere and aerosol information used in the processing. This includes aerosol type, angstrom exponent, single scattering albedo, AOT at 550 nm, total column ozone, and total precipitable water vapour.</p></li>
 <li><p><strong>tmart_ancillary/*.nc</strong>: ancillary files from NASA Ocean Color.</p></li>
 <li><p><strong>tmart_completed.txt</strong>: a record of bands that have been corrected for the adjacency effect.</p></li>
 </ul>
 </section>
 <section id="aec-configuration">
 <h2>AEC Configuration<a class="headerlink" href="#aec-configuration" title="Permalink to this heading"></a></h2>
-<p>A configuration file is stored in the <em>tmart</em> package folder, most of the configuration settings are tuned for best performance. Brief descriptions are given in the file. In case a large amount of water pixels are falsely masked as land, <code class="docutils literal notranslate"><span class="pre">AE_land</span></code> can be set as True in order to perform AEC across the entire scene.</p>
+<p>A configuration file is stored in the <em>tmart</em> package folder. Brief descriptions are given in the file. Most of the configuration settings are tuned for best performance. In case a large amount of water pixels are falsely masked as land, <code class="docutils literal notranslate"><span class="pre">AE_land</span></code> can be set as True in order to perform AEC across the entire scene.</p>
 </section>
 <section id="additional-arguments">
 <h2>Additional Arguments<a class="headerlink" href="#additional-arguments" title="Permalink to this heading"></a></h2>
