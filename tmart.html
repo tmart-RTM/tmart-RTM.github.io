@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parameters &mdash; T-Mart 1.3.6 documentation</title>
+  <title>Parameters &mdash; T-Mart 2.0.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -80,6 +80,10 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#module-tmart.surface_rho.calculate">surface_rho.calculate Function</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#tmart.surface_rho.calculate.calculate"><code class="docutils literal notranslate"><span class="pre">calculate()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-tmart.AEC.run">AEC.run Function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tmart.AEC.run.run"><code class="docutils literal notranslate"><span class="pre">run()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -229,7 +233,7 @@ To observe the photon movements, mostly for debugging purposes.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="tmart.Tmart.Tmart.set_wind">
-<span class="sig-name descname"><span class="pre">set_wind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wind_speed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wind_azi_avg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wind_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.Tmart.Tmart.set_wind" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_wind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wind_speed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wind_azi_avg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wind_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.Tmart.Tmart.set_wind" title="Permalink to this definition"></a></dt>
 <dd><p>Set wind speed and direction.</p>
 <p>Arguments:</p>
 <ul class="simple">
@@ -259,7 +263,7 @@ To observe the photon movements, mostly for debugging purposes.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">atm_profile</span></code> – AtmosProfile object from Py6S.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">aot550</span></code> – AOT at 550nm.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">aerosol_type</span></code> – ‘BiomassBurning’, ‘Continental’, ‘Desert’, ‘Maritime’, ‘Stratospheric’ or ‘Urban’, as provided by 6S.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">aerosol_type</span></code> – ‘BiomassBurning’, ‘Continental’, ‘Desert’, ‘Maritime’, ‘Stratospheric’ or ‘Urban’, as provided by 6S. Alternatively, a decimal between 0 and 1 indicating the ratio of ‘Maritime’ aerosol in a ‘Maritime’ and ‘Continental’ mixture.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">wl</span></code> – central wavelength in nm.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">n_layers</span></code> – Number of atmosphere layers to use. Default 20.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">AEROSOL_SCALE_HEIGHT</span></code> – Aerosol scale height in km. Default 2km.</p></li>
@@ -407,6 +411,31 @@ If 2 surfaces: the first background is the one closer to [0,0]</p>
 </ul>
 <p>Example usage:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tmart</span><span class="o">.</span><span class="n">surface_r</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">wl</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">viewing_zenith</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">solar_zenith</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">relative_azimuth</span><span class="o">=</span><span class="mi">135</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="module-tmart.AEC.run">
+<span id="aec-run-function"></span><h2>AEC.run Function<a class="headerlink" href="#module-tmart.AEC.run" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="tmart.AEC.run.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AOT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_photon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.AEC.run.run" title="Permalink to this definition"></a></dt>
+<dd><p>Run adjacency-effect correction on satellite files. Currently only supports Sentinel-2 MSI and Landsat 8 OLI products. See ‘Introduction - Adjacency-Effect Correction’ for details instructions.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">file</span></code> – String. Path to satellite files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">username</span></code> – String. Username of EarthData account.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">password</span></code> – String. Password of EarthData account.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">overwrite</span></code> – Boolean. If overwrite the existing files. The default is False and it creates a folder in the same directory that starts with AEC in the name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AOT</span></code> – Float. AOT at 550nm, calculated in T-Mart if not specified.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_photon</span></code> – Int. Number of photons in each T-Mart run, 100_000 is recommended for accurate results.</p></li>
+</ul>
+<p>Example usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;user/test/S2A_MSIL1C_20160812T143752_N0204_R096_T20MKB_20160812T143749.SAFE&#39;</span>
+<span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;abcdef&#39;</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;123456&#39;</span>
+<span class="n">tmart</span><span class="o">.</span><span class="n">AEC</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
