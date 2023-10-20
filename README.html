@@ -95,7 +95,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>tmart
 </pre></div>
 </div>
 <p>2 - Install dependencies:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>Py6S<span class="w"> </span>scipy<span class="w"> </span>pathos<span class="w"> </span>matplotlib<span class="w"> </span>netCDF4<span class="w"> </span>rasterio<span class="w"> </span>mgrs<span class="w"> </span>geopandas
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>Py6S
 </pre></div>
 </div>
 <p>Here the wait time may take up to twenty minutes because some packages require specific versions of dependencies.</p>
@@ -104,8 +104,8 @@ conda<span class="w"> </span>activate<span class="w"> </span>tmart
 </pre></div>
 </div>
 </section>
-<section id="adjacency-effect-correction">
-<h2>Adjacency-Effect Correction<a class="headerlink" href="#adjacency-effect-correction" title="Permalink to this heading"></a></h2>
+<section id="quick-start-adjacency-effect-correction">
+<h2>Quick Start: Adjacency-Effect Correction<a class="headerlink" href="#quick-start-adjacency-effect-correction" title="Permalink to this heading"></a></h2>
 <p>T-Mart supports adjacency-effect correction for Sentinel-2 MSI and Landsat 8 OLI products. Correction is performed directly on level-1 products therefore can be followed by any amtospheric-correction tools. Minimal inputs are:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tmart</span>
 <span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;user/test/S2A_MSIL1C_20160812T143752_N0204_R096_T20MKB_20160812T143749.SAFE&#39;</span>
@@ -119,8 +119,8 @@ conda<span class="w"> </span>activate<span class="w"> </span>tmart
 </div>
 <p>See <a href="https://tmart-rtm.github.io/ins_aec.html" target="_blank">Instruction - Adjacency-Effect Correction</a> for more detailed instructions.</p>
 </section>
-<section id="adjacency-effect-modelling">
-<h2>Adjacency-Effect Modelling<a class="headerlink" href="#adjacency-effect-modelling" title="Permalink to this heading"></a></h2>
+<section id="quick-start-adjacency-effect-modelling">
+<h2>Quick Start: Adjacency-Effect Modelling<a class="headerlink" href="#quick-start-adjacency-effect-modelling" title="Permalink to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tmart</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">Py6S.Params.atmosprofile</span> <span class="kn">import</span> <span class="n">AtmosProfile</span>
