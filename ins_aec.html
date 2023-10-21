@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instruction - Adjacency-Effect Correction &mdash; T-Mart 2.0.2 documentation</title>
+  <title>Instruction - Adjacency-Effect Correction &mdash; T-Mart 2.0.3 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -52,6 +52,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#ancillary-and-log-files">Ancillary and Log Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#aec-configuration">AEC Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#additional-arguments">Additional Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assumptions-in-the-processing">Assumptions in the Processing</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ins_rho.html">Instruction - Modelling Sea-Surface Reflectance factor</a></li>
@@ -85,7 +86,7 @@
 <h1>Instruction - Adjacency-Effect Correction<a class="headerlink" href="#instruction-adjacency-effect-correction" title="Permalink to this heading"></a></h1>
 <section id="minimal-input">
 <h2>Minimal Input<a class="headerlink" href="#minimal-input" title="Permalink to this heading"></a></h2>
-<p>A single function is used to perform adjacency-effect correction (AEC) in T-Mart. Correction is performed directly on level-1 products therefore can be followed by any amtospheric-correction tools. Currently it only supports Sentinel-2 MSI and Landsat 8 OLI products.</p>
+<p>A single function is used to perform adjacency-effect correction (AEC) in T-Mart. Correction is performed directly on level-1 products, and the output is adjacency-effect-free top-of-atmosphere products in the same format as the input level-1 products, therefore this workflow can be followed by any amtospheric-correction tools. Currently it only supports Sentinel-2 MSI and Landsat 8 OLI imagery.</p>
 <p>NASA EarthData Credentials are needed to retrieve ozone, water vapour, and aerosol information for accurate AEC. You may need to approve OB.DAAC Data Access in your <a href="https://urs.earthdata.nasa.gov/profile" target="_blank">EarthData account</a>.</p>
 <p>Minimal input to the AEC.run function includes path to satellite files and EarthData Credentials. See the <a href="https://tmart-rtm.github.io/tmart.html#module-tmart.AEC.run" target="_blank">AEC.run Function</a> tab for all arguments.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;user/test/S2A_MSIL1C_20160812T143752_N0204_R096_T20MKB_20160812T143749.SAFE&#39;</span>
@@ -125,6 +126,16 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tmart</span><span class="o">.</span><span class="n">AEC</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">AOT</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">n_photon</span> <span class="o">=</span> <span class="mi">10_000</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
+<section id="assumptions-in-the-processing">
+<h2>Assumptions in the Processing<a class="headerlink" href="#assumptions-in-the-processing" title="Permalink to this heading"></a></h2>
+<p>A few assumptions are made in the processing, violations can lead to various degrees of errors in the output AE-free product:</p>
+<ul class="simple">
+<li><p>Isotropic/Lambertian surface</p></li>
+<li><p>Homogeneous atmosphere and aerosols across the scene</p></li>
+<li><p>Flat surface or lack of topography</p></li>
+<li><p>Reflectance outside the scene is the median of the scene at each wavelength, it is homogeneous and it extends to infinity</p></li>
+</ul>
 </section>
 </section>
 
