@@ -307,7 +307,7 @@ if __name__ == "__main__":
 
 Output: 
 
-<img src="files/3D_surface.png"  width="500">
+<img src="_images/3D_surface.png"  width="500">
 
 ## Useful Information 
 
