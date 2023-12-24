@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code &mdash; T-Mart 2.0.3 documentation</title>
+  <title>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code &mdash; T-Mart 2.0.8 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/custom.css" type="text/css" />
@@ -108,6 +108,8 @@ conda<span class="w"> </span>activate<span class="w"> </span>tmart
 <p>T-Mart supports adjacency-effect correction for Sentinel-2 MSI and Landsat 8 OLI products. Correction is performed directly on level-1 products therefore can be followed by any amtospheric-correction tools. Minimal inputs are:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tmart</span>
 <span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;user/test/S2A_MSIL1C_20160812T143752_N0204_R096_T20MKB_20160812T143749.SAFE&#39;</span>
+
+<span class="c1"># NASA EarthData Credentials, OB.DAAC Data Access needs to be approved</span>
 <span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;abcdef&#39;</span>
 <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;123456&#39;</span>
 
