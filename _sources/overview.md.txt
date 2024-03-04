@@ -9,10 +9,7 @@ T-Mart solves the radiative transfer in a 3D surface-atmosphere system through a
 
 ## AE Correction
 
-AE correction is a module of T-Mart and it is relatively easy to use. 
-
-
-
+AE correction is a module of T-Mart. See Tab <a href="https://tmart-rtm.github.io/ins_aec.html" target="_blank">Instruction - Adjacency-Effect Correction</a> for details.
 
 
 ## AE Modelling 
@@ -27,9 +24,7 @@ In addition to the radiative transfer solver, there are three components in the 
 
 Many of T-Mart's input are from Py6S. Users are assumed to have basic understanding of numpy arrays and radiative transfer. 
 
-Home page: <a href="https://github.com/yulunwu8/tmart" target="_blank">https://github.com/yulunwu8/tmart</a>
 
-Yulun Wu | April 2, 2023 | [yulunwu8@gmail.com](mailto:yulunwu8@gmail.com)
 
 ## Publication
 
@@ -107,7 +102,9 @@ Reflectances (definitions as per 6S):
 Environmental and direct reflectances can be further divided into contributions from water-leaving, water-specular, water-whitecap and land reflectances. 
 
 
+Home page: <a href="https://github.com/yulunwu8/tmart" target="_blank">https://github.com/yulunwu8/tmart</a>
 
+Yulun Wu | April 2, 2023 | [yulunwu8@gmail.com](mailto:yulunwu8@gmail.com)
 
 
 
