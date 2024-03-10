@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code &mdash; T-Mart 2.2.5 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <title>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code &mdash; T-Mart 2.2.6 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=184e8d39" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=ddecf0d5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -73,22 +77,22 @@
            <div itemprop="articleBody">
              
   <section id="t-mart-topography-adjusted-monte-carlo-adjacency-effect-radiative-transfer-code">
-<h1>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code<a class="headerlink" href="#t-mart-topography-adjusted-monte-carlo-adjacency-effect-radiative-transfer-code" title="Permalink to this heading"></a></h1>
+<h1>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code<a class="headerlink" href="#t-mart-topography-adjusted-monte-carlo-adjacency-effect-radiative-transfer-code" title="Link to this heading"></a></h1>
 <section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading"></a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
 <p>T-Mart solves the radiative transfer in a 3D surface-atmosphere system through a Monte-Carlo approach. T-Mart features arbitrary surface models which allow simulating and correcting for the adjacency effect in aquatic remote sensing.</p>
 </section>
 <section id="links">
-<h2>Links<a class="headerlink" href="#links" title="Permalink to this heading"></a></h2>
+<h2>Links<a class="headerlink" href="#links" title="Link to this heading"></a></h2>
 <p>Home page: <a href="https://github.com/yulunwu8/tmart" target="_blank">https://github.com/yulunwu8/tmart</a></p>
 <p>User guide: <a href="https://tmart-rtm.github.io" target="_blank">https://tmart-rtm.github.io</a></p>
 </section>
 <section id="publication">
-<h2>Publication<a class="headerlink" href="#publication" title="Permalink to this heading"></a></h2>
+<h2>Publication<a class="headerlink" href="#publication" title="Link to this heading"></a></h2>
 <p>Wu, Y., Knudby, A., &amp; Lapen, D. (2023). Topography-Adjusted Monte Carlo Simulation of the Adjacency Effect in Remote Sensing of Coastal and Inland Waters. <em>Journal of Quantitative Spectroscopy and Radiative Transfer</em>, 108589. <a href="https://doi.org/10.1016/j.jqsrt.2023.108589" target="_blank">https://doi.org/10.1016/j.jqsrt.2023.108589</a></p>
 </section>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
 <p>1 - Create a conda environment and activate it:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>tmart<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.9
 conda<span class="w"> </span>activate<span class="w"> </span>tmart
@@ -104,7 +108,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>tmart
 </div>
 </section>
 <section id="quick-start-adjacency-effect-correction">
-<h2>Quick Start: Adjacency-Effect Correction<a class="headerlink" href="#quick-start-adjacency-effect-correction" title="Permalink to this heading"></a></h2>
+<h2>Quick Start: Adjacency-Effect Correction<a class="headerlink" href="#quick-start-adjacency-effect-correction" title="Link to this heading"></a></h2>
 <p>T-Mart supports adjacency-effect correction for Sentinel-2 MSI and Landsat 8 OLI products. Correction is performed directly on level-1 products therefore can be followed by any amtospheric-correction tools. Minimal inputs are:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tmart</span>
 <span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;user/test/S2A_MSIL1C_20160812T143752_N0204_R096_T20MKB_20160812T143749.SAFE&#39;</span>
@@ -121,7 +125,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>tmart
 <p>See <a href="https://tmart-rtm.github.io/ins_aec.html" target="_blank">Instruction - Adjacency-Effect Correction</a> for more detailed instructions.</p>
 </section>
 <section id="quick-start-adjacency-effect-modelling">
-<h2>Quick Start: Adjacency-Effect Modelling<a class="headerlink" href="#quick-start-adjacency-effect-modelling" title="Permalink to this heading"></a></h2>
+<h2>Quick Start: Adjacency-Effect Modelling<a class="headerlink" href="#quick-start-adjacency-effect-modelling" title="Link to this heading"></a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tmart</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">Py6S.Params.atmosprofile</span> <span class="kn">import</span> <span class="n">AtmosProfile</span>
@@ -188,7 +192,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>tmart
 <p>See user guide for more detailed instructions.</p>
 </section>
 <section id="other">
-<h2>Other<a class="headerlink" href="#other" title="Permalink to this heading"></a></h2>
+<h2>Other<a class="headerlink" href="#other" title="Link to this heading"></a></h2>
 <p>T-Mart can calculate reflectances of various units, see Table 1 in Wu et al. (2023) for examples.</p>
 <p>For questions and suggestions (which I’m always open to!), please email Yulun at <a class="reference external" href="mailto:yulunwu8&#37;&#52;&#48;gmail&#46;com">yulunwu8<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
 </section>

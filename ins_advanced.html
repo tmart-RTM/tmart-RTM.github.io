@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instruction - Advanced Modelling &mdash; T-Mart 2.2.5 documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  <title>Instruction - Advanced Modelling &mdash; T-Mart 2.2.6 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=184e8d39" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+
+  
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=ddecf0d5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -83,10 +87,10 @@
            <div itemprop="articleBody">
              
   <section id="instruction-advanced-modelling">
-<h1>Instruction - Advanced Modelling<a class="headerlink" href="#instruction-advanced-modelling" title="Permalink to this heading"></a></h1>
+<h1>Instruction - Advanced Modelling<a class="headerlink" href="#instruction-advanced-modelling" title="Link to this heading"></a></h1>
 <p>This page introduces spectral and 3D radiative-transfer calculations.</p>
 <section id="be-creative-at-what-you-can-do">
-<h2>Be Creative at What You Can Do!<a class="headerlink" href="#be-creative-at-what-you-can-do" title="Permalink to this heading"></a></h2>
+<h2>Be Creative at What You Can Do!<a class="headerlink" href="#be-creative-at-what-you-can-do" title="Link to this heading"></a></h2>
 <p>You can do lots of things with T-Mart! E.g.:</p>
 <ul class="simple">
 <li><p>Load your own DEM and image (they have to be the same size),</p></li>
@@ -94,7 +98,7 @@
 </ul>
 </section>
 <section id="built-in-surface-types">
-<h2>Built-in Surface Types<a class="headerlink" href="#built-in-surface-types" title="Permalink to this heading"></a></h2>
+<h2>Built-in Surface Types<a class="headerlink" href="#built-in-surface-types" title="Link to this heading"></a></h2>
 <p>T-Mart currently provides four built-in spectral surface types: soil, vegetation, water and water with a chlorophyll concentration of 1 µg/L. For example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create object</span>
 <span class="n">water</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">SpectralSurface</span><span class="p">(</span><span class="s1">&#39;water_chl1&#39;</span><span class="p">)</span>
@@ -109,7 +113,7 @@
 </div>
 </section>
 <section id="case-study-typical-ocean-colour-observation">
-<h2>Case Study: Typical Ocean-Colour Observation<a class="headerlink" href="#case-study-typical-ocean-colour-observation" title="Permalink to this heading"></a></h2>
+<h2>Case Study: Typical Ocean-Colour Observation<a class="headerlink" href="#case-study-typical-ocean-colour-observation" title="Link to this heading"></a></h2>
 <p>Here we model a typical hyperspectral ocean-colour observation with the following parameters:</p>
 <ul class="simple">
 <li><p>View zenith = 30°</p></li>
@@ -222,7 +226,7 @@
 <p>Note that because T-Mart runs wavelength by wavelength and Monte-Carlo solvers are usually slower than other numerical solvers, the code above may take over 10 minutes to run.</p>
 </section>
 <section id="case-study-adjacency-effect-modelling">
-<h2>Case Study: Adjacency-Effect Modelling<a class="headerlink" href="#case-study-adjacency-effect-modelling" title="Permalink to this heading"></a></h2>
+<h2>Case Study: Adjacency-Effect Modelling<a class="headerlink" href="#case-study-adjacency-effect-modelling" title="Link to this heading"></a></h2>
 <p>Here I demonstrate a simple straight-line-coast adjacency-effect modelling using two built-in spectral libraries in T-Mart, <em>water_chl1</em> and <em>vegetation</em>, representing ocean water with a chlorophyll concentration of 1 mg/m<sup>3</sup> and land of vegetation, respectively.</p>
 <p>Modelling of the adjacency effect at 800 nm, 1000 m from the shore:</p>
 <img src="_images/AE.png"  width="500">
@@ -304,7 +308,7 @@
 <p>You might want to edit parameters in the code to suit your needs, important parameters include wavelength, distance to shore, aerosol type and AOT, solar and viewing geometry, etc. One can also import imagery as numpy array to model more complex shorelines and surfaces.</p>
 </section>
 <section id="d-surfaces">
-<h2>3D Surfaces<a class="headerlink" href="#d-surfaces" title="Permalink to this heading"></a></h2>
+<h2>3D Surfaces<a class="headerlink" href="#d-surfaces" title="Link to this heading"></a></h2>
 <p>To simulate non-flat surfaces, all we need to do is to have non-zero values in the DEM array. Users can import DEMs from rasters through geo-processing packages such as GDAL. For example,</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">image_DEM</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">30_000</span><span class="p">,</span><span class="mi">20_000</span><span class="p">],[</span><span class="mi">5_000</span><span class="p">,</span><span class="mi">10_000</span><span class="p">]])</span> <span class="c1"># in meters</span>
 </pre></div>
@@ -369,7 +373,7 @@
 <img src="_images/3D_surface.png"  width="500">
 </section>
 <section id="useful-information">
-<h2>Useful Information<a class="headerlink" href="#useful-information" title="Permalink to this heading"></a></h2>
+<h2>Useful Information<a class="headerlink" href="#useful-information" title="Link to this heading"></a></h2>
 <p>The following two dataframes completely describe the atmosphere at a single wavelength in T-Mart.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
 <span class="c1"># Running T-Mart at a specific wavelength will generate </span>
