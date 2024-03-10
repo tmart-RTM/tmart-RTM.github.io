@@ -51,7 +51,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ins_basic.html">Instruction - Basic Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ins_advanced.html">Instruction - Advanced Modelling</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Instruction - Adjacency-Effect Correction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#minimal-input">Minimal Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mininum-input">Mininum Input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#overwrite-existing-files">Overwrite Existing Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ancillary-and-log-files">Ancillary and Log Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#aec-configuration">AEC Configuration</a></li>
@@ -88,8 +88,8 @@
              
   <section id="instruction-adjacency-effect-correction">
 <h1>Instruction - Adjacency-Effect Correction<a class="headerlink" href="#instruction-adjacency-effect-correction" title="Link to this heading"></a></h1>
-<section id="minimal-input">
-<h2>Minimal Input<a class="headerlink" href="#minimal-input" title="Link to this heading"></a></h2>
+<section id="mininum-input">
+<h2>Mininum Input<a class="headerlink" href="#mininum-input" title="Link to this heading"></a></h2>
 <p>The <em>AEC.run</em> function is used to perform adjacency-effect correction (AEC) in T-Mart. Correction is performed directly on level-1 products, and the output is adjacency-effect-free top-of-atmosphere products in the same format as the input level-1 products, therefore this workflow can be followed by any amtospheric-correction tools. Currently it supports Sentinel-2 MSI, Landsat 8/9 OLI and PRISMA imagery.</p>
 <p>NASA EarthData Credentials are needed to retrieve ozone, water vapour, and aerosol optical thickness and composition for accurate AEC. You may need to approve OB.DAAC Data Access in your <a href="https://urs.earthdata.nasa.gov/profile" target="_blank">EarthData account</a>.</p>
 <p>Minimum input to the <em>AEC.run</em> function includes path to satellite files and EarthData Credentials. See <a href="https://tmart-rtm.github.io/tmart.html#module-tmart.AEC.run" target="_blank">AEC.run Function</a> for all arguments.</p>
