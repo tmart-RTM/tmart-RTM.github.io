@@ -40,7 +40,7 @@ pip3 install tmart
 
 ## Quick Start: Adjacency-Effect Correction 
 
-T-Mart supports adjacency-effect correction for Sentinel-2 MSI and Landsat 8 OLI products. Correction is performed directly on level-1 products therefore can be followed by any amtospheric-correction tools. Minimal inputs are: 
+T-Mart supports adjacency-effect correction for Sentinel-2 MSI and Landsat 8/9 OLI/OLI-2 products. Correction is performed directly on level-1 products therefore can be followed by any amtospheric-correction tools. Minimal inputs are: 
 
 ```python
 import tmart
@@ -80,8 +80,7 @@ my_surface = tmart.Surface(DEM = image_DEM,
                                
 ### Atmosphere ###
 atm_profile = AtmosProfile.PredefinedType(AtmosProfile.MidlatitudeSummer) 
-aerosol_type = 'Maritime'  
-my_atm = tmart.Atmosphere(atm_profile, aot550 = 0, aerosol_type = 'Maritime'  )
+my_atm = tmart.Atmosphere(atm_profile, aot550 = 0, aerosol_type = 'Maritime')
 
 ### Create T-Mart Object ###
 my_tmart = tmart.Tmart(Surface = my_surface, Atmosphere= my_atm, shadow=False)
@@ -90,7 +89,7 @@ my_tmart.set_geometry(sensor_coords=[51,50,130_000],
                       sun_dir=[0,0])
 
 ### Multiprocessing needs to be wrapped in 'if __name__ == "__main__":' for Windows systems. 
-### This can be skipped for Linux-based systems. 
+### This can be skipped for Unix-based systems. 
 if __name__ == "__main__":
     results = my_tmart.run(wl=wl, band=None, n_photon=10_000)
     

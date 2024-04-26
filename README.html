@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code &mdash; T-Mart 2.2.6 documentation</title>
+  <title>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code &mdash; T-Mart 2.3.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=184e8d39" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css" />
@@ -16,7 +16,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=ddecf0d5"></script>
+        <script src="_static/documentation_options.js?v=5048a02b"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -109,7 +109,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>tmart
 </section>
 <section id="quick-start-adjacency-effect-correction">
 <h2>Quick Start: Adjacency-Effect Correction<a class="headerlink" href="#quick-start-adjacency-effect-correction" title="Link to this heading"></a></h2>
-<p>T-Mart supports adjacency-effect correction for Sentinel-2 MSI and Landsat 8 OLI products. Correction is performed directly on level-1 products therefore can be followed by any amtospheric-correction tools. Minimal inputs are:</p>
+<p>T-Mart supports adjacency-effect correction for Sentinel-2 MSI and Landsat 8/9 OLI/OLI-2 products. Correction is performed directly on level-1 products therefore can be followed by any amtospheric-correction tools. Minimal inputs are:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tmart</span>
 <span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;user/test/S2A_MSIL1C_20160812T143752_N0204_R096_T20MKB_20160812T143749.SAFE&#39;</span>
 
@@ -146,8 +146,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>tmart
                                
 <span class="c1">### Atmosphere ###</span>
 <span class="n">atm_profile</span> <span class="o">=</span> <span class="n">AtmosProfile</span><span class="o">.</span><span class="n">PredefinedType</span><span class="p">(</span><span class="n">AtmosProfile</span><span class="o">.</span><span class="n">MidlatitudeSummer</span><span class="p">)</span> 
-<span class="n">aerosol_type</span> <span class="o">=</span> <span class="s1">&#39;Maritime&#39;</span>  
-<span class="n">my_atm</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">Atmosphere</span><span class="p">(</span><span class="n">atm_profile</span><span class="p">,</span> <span class="n">aot550</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">aerosol_type</span> <span class="o">=</span> <span class="s1">&#39;Maritime&#39;</span>  <span class="p">)</span>
+<span class="n">my_atm</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">Atmosphere</span><span class="p">(</span><span class="n">atm_profile</span><span class="p">,</span> <span class="n">aot550</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">aerosol_type</span> <span class="o">=</span> <span class="s1">&#39;Maritime&#39;</span><span class="p">)</span>
 
 <span class="c1">### Create T-Mart Object ###</span>
 <span class="n">my_tmart</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">Tmart</span><span class="p">(</span><span class="n">Surface</span> <span class="o">=</span> <span class="n">my_surface</span><span class="p">,</span> <span class="n">Atmosphere</span><span class="o">=</span> <span class="n">my_atm</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -156,7 +155,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>tmart
                       <span class="n">sun_dir</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="c1">### Multiprocessing needs to be wrapped in &#39;if __name__ == &quot;__main__&quot;:&#39; for Windows systems. </span>
-<span class="c1">### This can be skipped for Linux-based systems. </span>
+<span class="c1">### This can be skipped for Unix-based systems. </span>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">results</span> <span class="o">=</span> <span class="n">my_tmart</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">wl</span><span class="o">=</span><span class="n">wl</span><span class="p">,</span> <span class="n">band</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_photon</span><span class="o">=</span><span class="mi">10_000</span><span class="p">)</span>
     
