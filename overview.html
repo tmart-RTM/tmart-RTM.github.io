@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Overview &mdash; T-Mart 2.3.2 documentation</title>
+  <title>Overview &mdash; T-Mart 2.4.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=184e8d39" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css" />
@@ -16,13 +16,13 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5048a02b"></script>
+        <script src="_static/documentation_options.js?v=4d935f96"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Instruction - Basic Modelling" href="ins_basic.html" />
+    <link rel="next" title="Instruction - Adjacency-Effect Correction" href="ins_aec.html" />
     <link rel="prev" title="Welcome to T-Mart’s documentation!" href="index.html" /> 
 </head>
 
@@ -49,15 +49,15 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#t-mart-topography-adjusted-monte-carlo-adjacency-effect-radiative-transfer-code">T-Mart (Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer code)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ae-correction">AE Correction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ae-modelling">AE Modelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ae-correction">AE correction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ae-modelling">AE modelling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#publication">Publication</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="ins_aec.html">Instruction - Adjacency-Effect Correction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ins_basic.html">Instruction - Basic Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ins_advanced.html">Instruction - Advanced Modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ins_aec.html">Instruction - Adjacency-Effect Correction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ins_rho.html">Instruction - Modelling Sea-Surface Reflectance factor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tmart.html">Parameters</a></li>
 </ul>
@@ -89,14 +89,14 @@
 <h1>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h1>
 <section id="t-mart-topography-adjusted-monte-carlo-adjacency-effect-radiative-transfer-code">
 <h2>T-Mart (Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer code)<a class="headerlink" href="#t-mart-topography-adjusted-monte-carlo-adjacency-effect-radiative-transfer-code" title="Link to this heading"></a></h2>
-<p>T-Mart solves the radiative transfer in a 3D surface-atmosphere system. This can be used in modelling and correcting for the adjacency effect (AE). T-Mart was developed with a focus on aquatic environments.</p>
+<p>T-Mart solves the radiative transfer in a 3D surface-atmosphere system. This can be used in modelling and correcting for the adjacency effect (AE). Although initially designed for aquatic environments, T-Mart can also handle basic terrestrial applications.</p>
 </section>
 <section id="ae-correction">
-<h2>AE Correction<a class="headerlink" href="#ae-correction" title="Link to this heading"></a></h2>
+<h2>AE correction<a class="headerlink" href="#ae-correction" title="Link to this heading"></a></h2>
 <p>See Tab <a href="https://tmart-rtm.github.io/ins_aec.html" target="_blank">Instruction - Adjacency-Effect Correction</a> for details.</p>
 </section>
 <section id="ae-modelling">
-<h2>AE Modelling<a class="headerlink" href="#ae-modelling" title="Link to this heading"></a></h2>
+<h2>AE modelling<a class="headerlink" href="#ae-modelling" title="Link to this heading"></a></h2>
 <p>See Tab <a href="https://tmart-rtm.github.io/ins_basic.html" target="_blank">Instruction - Basic Modelling</a> and <a href="https://tmart-rtm.github.io/ins_advanced.html" target="_blank">Instruction - Advanced Modelling</a> for details.</p>
 </section>
 <section id="installation">
@@ -119,7 +119,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>tmart
 <h2>Publication<a class="headerlink" href="#publication" title="Link to this heading"></a></h2>
 <p>Wu, Y., Knudby, A., &amp; Lapen, D. (2023). Topography-Adjusted Monte Carlo Simulation of the Adjacency Effect in Remote Sensing of Coastal and Inland Waters. <em>Journal of Quantitative Spectroscopy and Radiative Transfer</em>, 108589. <a href="https://doi.org/10.1016/j.jqsrt.2023.108589" target="_blank">https://doi.org/10.1016/j.jqsrt.2023.108589</a></p>
 <p>Home page: <a href="https://github.com/yulunwu8/tmart" target="_blank">https://github.com/yulunwu8/tmart</a></p>
-<p>Yulun Wu | March 10, 2024 | <a class="reference external" href="mailto:yulunwu8&#37;&#52;&#48;gmail&#46;com">yulunwu8<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
+<p>Yulun Wu | September 29, 2024 | <a class="reference external" href="mailto:yulunwu8&#37;&#52;&#48;gmail&#46;com">yulunwu8<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
 </section>
 </section>
 
@@ -128,7 +128,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>tmart
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Welcome to T-Mart’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ins_basic.html" class="btn btn-neutral float-right" title="Instruction - Basic Modelling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ins_aec.html" class="btn btn-neutral float-right" title="Instruction - Adjacency-Effect Correction" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
