@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to T-Mart’s documentation! &mdash; T-Mart 2.3.2 documentation</title>
+  <title>Welcome to T-Mart’s documentation! &mdash; T-Mart 2.4.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=184e8d39" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css" />
@@ -16,7 +16,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5048a02b"></script>
+        <script src="_static/documentation_options.js?v=4d935f96"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -47,9 +47,9 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ins_aec.html">Instruction - Adjacency-Effect Correction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ins_basic.html">Instruction - Basic Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ins_advanced.html">Instruction - Advanced Modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ins_aec.html">Instruction - Adjacency-Effect Correction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ins_rho.html">Instruction - Modelling Sea-Surface Reflectance factor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tmart.html">Parameters</a></li>
 </ul>
@@ -84,44 +84,44 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#t-mart-topography-adjusted-monte-carlo-adjacency-effect-radiative-transfer-code">T-Mart (Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer code)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#ae-correction">AE Correction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#ae-modelling">AE Modelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#ae-correction">AE correction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#ae-modelling">AE modelling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#publication">Publication</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ins_aec.html">Instruction - Adjacency-Effect Correction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ins_aec.html#mininum-input">Mininum input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_aec.html#overwrite-existing-files">Overwrite existing files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_aec.html#ancillary-and-log-files">Ancillary and log files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_aec.html#aec-configuration">AEC configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_aec.html#additional-arguments">Additional arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_aec.html#assumptions-in-the-processing">Assumptions in the processing</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ins_basic.html">Instruction - Basic Modelling</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="ins_basic.html#input">Input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ins_basic.html#output">Output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#let-s-get-started">Let’s Get Started!</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#quick-start">Quick Start</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#observing-the-movements-of-a-single-photon">Observing the Movements of a Single Photon</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#multiple-processing">Multiple Processing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#water-pixels">Water Pixels</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#modify-background">Modify Background</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#adding-aerosol-to-the-atmosphere">Adding Aerosol to the Atmosphere</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#surface-properties">Surface Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#band-calculation">Band Calculation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#other-parameters">Other Parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#full-single-run">Full Single Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#let-s-get-started">Let’s get started!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#quick-start">Quick start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#observing-the-movements-of-a-single-photon">Observing the movements of a single photon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#multiple-processing">Multiple processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#water-pixels">Water pixels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#to-modify-the-background">To modify the background</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#to-add-aerosol-to-the-atmosphere">To add aerosol to the atmosphere</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#surface-properties">Surface properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#band-calculation">Band calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#other-parameters">Other parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_basic.html#full-single-run">Full single run</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ins_advanced.html">Instruction - Advanced Modelling</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ins_advanced.html#be-creative-at-what-you-can-do">Be Creative at What You Can Do!</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_advanced.html#built-in-surface-types">Built-in Surface Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_advanced.html#case-study-typical-ocean-colour-observation">Case Study: Typical Ocean-Colour Observation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_advanced.html#case-study-adjacency-effect-modelling">Case Study: Adjacency-Effect Modelling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_advanced.html#d-surfaces">3D Surfaces</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_advanced.html#useful-information">Useful Information</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="ins_aec.html">Instruction - Adjacency-Effect Correction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ins_aec.html#mininum-input">Mininum Input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_aec.html#overwrite-existing-files">Overwrite Existing Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_aec.html#ancillary-and-log-files">Ancillary and Log Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_aec.html#aec-configuration">AEC Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_aec.html#additional-arguments">Additional Arguments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ins_aec.html#assumptions-in-the-processing">Assumptions in the Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_advanced.html#be-creative-at-what-you-can-do">Be creative at what you can do!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_advanced.html#built-in-surface-types">Built-in surface types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_advanced.html#case-study-a-typical-ocean-colour-observation">Case study: a typical ocean-colour observation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_advanced.html#case-study-adjacency-effect-modelling">Case study: adjacency-effect modelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_advanced.html#d-surfaces">3D surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ins_advanced.html#useful-information">Useful information</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ins_rho.html">Instruction - Modelling Sea-Surface Reflectance factor</a></li>

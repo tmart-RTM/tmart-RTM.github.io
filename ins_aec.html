@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instruction - Adjacency-Effect Correction &mdash; T-Mart 2.3.2 documentation</title>
+  <title>Instruction - Adjacency-Effect Correction &mdash; T-Mart 2.4.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=184e8d39" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css" />
@@ -16,14 +16,14 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5048a02b"></script>
+        <script src="_static/documentation_options.js?v=4d935f96"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Instruction - Modelling Sea-Surface Reflectance factor" href="ins_rho.html" />
-    <link rel="prev" title="Instruction - Advanced Modelling" href="ins_advanced.html" /> 
+    <link rel="next" title="Instruction - Basic Modelling" href="ins_basic.html" />
+    <link rel="prev" title="Overview" href="overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,17 +48,17 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ins_basic.html">Instruction - Basic Modelling</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ins_advanced.html">Instruction - Advanced Modelling</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Instruction - Adjacency-Effect Correction</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#mininum-input">Mininum Input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#overwrite-existing-files">Overwrite Existing Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ancillary-and-log-files">Ancillary and Log Files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#aec-configuration">AEC Configuration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#additional-arguments">Additional Arguments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#assumptions-in-the-processing">Assumptions in the Processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mininum-input">Mininum input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overwrite-existing-files">Overwrite existing files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ancillary-and-log-files">Ancillary and log files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#aec-configuration">AEC configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-arguments">Additional arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assumptions-in-the-processing">Assumptions in the processing</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="ins_basic.html">Instruction - Basic Modelling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ins_advanced.html">Instruction - Advanced Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ins_rho.html">Instruction - Modelling Sea-Surface Reflectance factor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tmart.html">Parameters</a></li>
 </ul>
@@ -89,11 +89,12 @@
   <section id="instruction-adjacency-effect-correction">
 <h1>Instruction - Adjacency-Effect Correction<a class="headerlink" href="#instruction-adjacency-effect-correction" title="Link to this heading"></a></h1>
 <section id="mininum-input">
-<h2>Mininum Input<a class="headerlink" href="#mininum-input" title="Link to this heading"></a></h2>
-<p>The <em>AEC.run</em> function is used to perform adjacency-effect correction (AEC) in T-Mart. Correction is performed directly on level-1 products, and the output is adjacency-effect-free top-of-atmosphere products in the same format as the input level-1 products, therefore this workflow can be followed by any amtospheric-correction tools. Currently it supports Sentinel-2 MSI, Landsat 8/9 OLI and PRISMA imagery.</p>
-<p>NASA EarthData Credentials are needed to retrieve ozone, water vapour, and aerosol optical thickness and composition for accurate AEC. You may need to approve OB.DAAC Data Access in your <a href="https://urs.earthdata.nasa.gov/profile" target="_blank">EarthData account</a>.</p>
-<p>Minimum input to the <em>AEC.run</em> function includes path to satellite files and EarthData Credentials. See <a href="https://tmart-rtm.github.io/tmart.html#module-tmart.AEC.run" target="_blank">AEC.run Function</a> for all arguments.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;user/test/S2A_MSIL1C_20160812T143752_N0204_R096_T20MKB_20160812T143749.SAFE&#39;</span>
+<h2>Mininum input<a class="headerlink" href="#mininum-input" title="Link to this heading"></a></h2>
+<p>The <em>AEC.run</em> function is used to perform adjacency-effect correction (AEC) in T-Mart. Correction is performed directly on level-1 products, and the output is adjacency-effect-free top-of-atmosphere products in the same format as the input level-1 products, therefore this workflow can be followed by any amtospheric correction tools. Currently it supports Sentinel-2 MSI, Landsat 8/9 OLI/OLI-2 and PRISMA imagery.</p>
+<p>NASA EarthData credentials are needed to retrieve ozone, water vapour, and aerosol optical thickness and composition for accurate AEC. You may need to approve OB.DAAC Data Access in your <a href="https://urs.earthdata.nasa.gov/profile" target="_blank">EarthData account</a>.</p>
+<p>Minimum input to the <em>AEC.run</em> function includes a path to satellite files and EarthData credentials. See <a href="https://tmart-rtm.github.io/tmart.html#module-tmart.AEC.run" target="_blank">AEC.run Function</a> for all the arguments.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tmart</span>
+<span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;user/test/S2A_MSIL1C_20160812T143752_N0204_R096_T20MKB_20160812T143749.SAFE&#39;</span>
 <span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;abcdef&#39;</span>
 <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;123456&#39;</span>
 
@@ -104,42 +105,42 @@
 </div>
 </section>
 <section id="overwrite-existing-files">
-<h2>Overwrite Existing Files<a class="headerlink" href="#overwrite-existing-files" title="Link to this heading"></a></h2>
+<h2>Overwrite existing files<a class="headerlink" href="#overwrite-existing-files" title="Link to this heading"></a></h2>
 <p>By default, the processing creates a copy of the original satellite files in the same directory, as a new folder that starts with ‘AEC_’. To overwrite the eixsting files, add ‘overwrite=True’ to the arguments:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tmart</span><span class="o">.</span><span class="n">AEC</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="ancillary-and-log-files">
-<h2>Ancillary and Log Files<a class="headerlink" href="#ancillary-and-log-files" title="Link to this heading"></a></h2>
+<h2>Ancillary and log files<a class="headerlink" href="#ancillary-and-log-files" title="Link to this heading"></a></h2>
 <p>During the AEC process, a number of files are generated:</p>
 <ul class="simple">
 <li><p><strong>tmart_log_*.txt</strong>: detailed processing information, as printed in the Python console.</p></li>
-<li><p><strong>tmart_atm_info.txt</strong>: atmosphere and aerosol information used in the processing. This includes aerosol type, angstrom exponent, single scattering albedo, AOT at 550 nm, total column ozone, and total precipitable water vapour.</p></li>
+<li><p><strong>tmart_atm_info_*.txt</strong>: atmosphere and aerosol information used in the processing. This includes aerosol type, angstrom exponent, single scattering albedo, AOT at 550 nm, total column ozone, and total precipitable water vapour.</p></li>
 <li><p><strong>tmart_ancillary/*.nc</strong>: GMAO MERRA2 ancillary files from the NASA Ocean Biology Processing Group.</p></li>
 <li><p><strong>tmart_completed.txt</strong>: a record of bands that have been corrected for the adjacency effect.</p></li>
 </ul>
 </section>
 <section id="aec-configuration">
-<h2>AEC Configuration<a class="headerlink" href="#aec-configuration" title="Link to this heading"></a></h2>
+<h2>AEC configuration<a class="headerlink" href="#aec-configuration" title="Link to this heading"></a></h2>
 <p>A TXT configuration file is stored in the <em>tmart</em> package folder. Brief descriptions are given in the file. Most of the configuration settings are tuned for best performance. In case a large amount of water pixels are falsely masked as land, <code class="docutils literal notranslate"><span class="pre">AE_land</span></code> can be set as True in order to perform AEC across the entire scene. Its path is printed in the Python console and the log file.</p>
 </section>
 <section id="additional-arguments">
-<h2>Additional Arguments<a class="headerlink" href="#additional-arguments" title="Link to this heading"></a></h2>
+<h2>Additional arguments<a class="headerlink" href="#additional-arguments" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">AOT</span></code> and <code class="docutils literal notranslate"><span class="pre">n_photon</span></code> can be specified manually. You can specify <code class="docutils literal notranslate"><span class="pre">AOT</span></code> if you are certain about its value or simply to test the impact of using different values. <code class="docutils literal notranslate"><span class="pre">n_photon</span></code> is the number of photons used in each T-Mart run, 100_000 is recommended for accurate results. It can be reduced to 10_000 for quicker computation.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tmart</span><span class="o">.</span><span class="n">AEC</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">AOT</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">n_photon</span> <span class="o">=</span> <span class="mi">10_000</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="assumptions-in-the-processing">
-<h2>Assumptions in the Processing<a class="headerlink" href="#assumptions-in-the-processing" title="Link to this heading"></a></h2>
+<h2>Assumptions in the processing<a class="headerlink" href="#assumptions-in-the-processing" title="Link to this heading"></a></h2>
 <p>A few assumptions are made in the processing, violations can lead to various degrees of errors in the output AE-free product:</p>
 <ul class="simple">
 <li><p>Isotropic/Lambertian surface</p></li>
-<li><p>Homogeneous atmosphere and aerosols across the scene</p></li>
+<li><p>Vertically stratified but horizontally homogeneous atmosphere and aerosols across the scene</p></li>
 <li><p>Flat surface or lack of topography</p></li>
 </ul>
-<p>See <a href="https://tmart-rtm.github.io/tmart.html#module-tmart.AEC.run" target="_blank">AEC.run Function</a> for all arguments.</p>
+<p>See <a href="https://tmart-rtm.github.io/tmart.html#module-tmart.AEC.run" target="_blank">AEC.run Function</a> for all the arguments.</p>
 </section>
 </section>
 
@@ -147,8 +148,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ins_advanced.html" class="btn btn-neutral float-left" title="Instruction - Advanced Modelling" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ins_rho.html" class="btn btn-neutral float-right" title="Instruction - Modelling Sea-Surface Reflectance factor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ins_basic.html" class="btn btn-neutral float-right" title="Instruction - Basic Modelling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
