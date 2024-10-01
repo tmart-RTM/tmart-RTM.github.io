@@ -80,16 +80,17 @@
 <h1>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code<a class="headerlink" href="#t-mart-topography-adjusted-monte-carlo-adjacency-effect-radiative-transfer-code" title="Link to this heading"></a></h1>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
-<p>T-Mart solves the radiative transfer in a 3D surface-atmosphere system through a Monte Carlo approach. T-Mart features arbitrary surface models which allow simulating and correcting for the adjacency effect in aquatic remote sensing.</p>
+<p>T-Mart solves radiative transfer in a 3D surface-atmosphere system. It supports customizable surface models and enables simulation and correction for the adjacency effect (AE) in optical aquatic remote sensing. AE correction substantially improves satellite-based retrieval of water-leaving reflectance in nearshore environments (Wu et al., 2024).</p>
 </section>
 <section id="links">
 <h2>Links<a class="headerlink" href="#links" title="Link to this heading"></a></h2>
 <p>Home page: <a href="https://github.com/yulunwu8/tmart" target="_blank">https://github.com/yulunwu8/tmart</a></p>
 <p>User guide: <a href="https://tmart-rtm.github.io" target="_blank">https://tmart-rtm.github.io</a></p>
 </section>
-<section id="publication">
-<h2>Publication<a class="headerlink" href="#publication" title="Link to this heading"></a></h2>
+<section id="publications">
+<h2>Publications<a class="headerlink" href="#publications" title="Link to this heading"></a></h2>
 <p>Wu, Y., Knudby, A., &amp; Lapen, D. (2023). Topography-Adjusted Monte Carlo Simulation of the Adjacency Effect in Remote Sensing of Coastal and Inland Waters. <em>Journal of Quantitative Spectroscopy and Radiative Transfer</em>, 108589. <a href="https://doi.org/10.1016/j.jqsrt.2023.108589" target="_blank">https://doi.org/10.1016/j.jqsrt.2023.108589</a></p>
+<p>Wu, Y., Knudby, A., Pahlevan, N., Lapen, D., &amp; Zeng, C. (2024). Sensor-generic adjacency-effect correction for remote sensing of coastal and inland waters. <em>Remote Sensing of Environment</em>, 315, 114433. <a href="https://doi.org/10.1016/j.rse.2024.114433" target="_blank">https://doi.org/10.1016/j.rse.2024.114433</a></p>
 </section>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
@@ -109,7 +110,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>tmart
 </section>
 <section id="quick-start-adjacency-effect-correction">
 <h2>Quick start: adjacency-effect correction<a class="headerlink" href="#quick-start-adjacency-effect-correction" title="Link to this heading"></a></h2>
-<p>T-Mart supports adjacency-effect correction for Sentinel-2 MSI and Landsat 8/9 OLI/OLI-2 products. Correction is performed directly on level-1 products and can be followed by any amtospheric correction tools.</p>
+<p>T-Mart supports AE correction for Sentinel-2 MSI and Landsat 8/9 OLI/OLI-2 products. Correction is performed directly on level-1 products and can be followed by any amtospheric correction tools.</p>
 <p>Minimal input:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tmart</span>
 <span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;user/test/S2A_MSIL1C_20160812T143752_N0204_R096_T20MKB_20160812T143749.SAFE&#39;</span>
