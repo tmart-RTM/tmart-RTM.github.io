@@ -378,7 +378,7 @@ If 2 surfaces: the first background is the one closer to [0,0]</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">df</span></code> – Results from T-Mart runs</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">n_photon</span></code> – Specify the number of photons in the run when firing the photon upwards. If not specified, the number of unique pt_id will be used. This can lead to errors when photons were fired upwards because some photons will not have pt_id.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">detail</span></code> – differentiate coxmunk, whitecap, water-leaving and land contributions</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">detail</span></code> – Boolean. Differentiate Cox-Munk, whitecap, water-leaving and land contributions</p></li>
 </ul>
 <p>Output:</p>
 <ul class="simple">
@@ -432,7 +432,7 @@ If 2 surfaces: the first background is the one closer to [0,0]</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">username</span></code> – String. Username of EarthData account.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">password</span></code> – String. Password of EarthData account.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">overwrite</span></code> – Boolean. If overwrite the existing files. The default is False and it creates a folder in the same directory that starts with AEC in the name</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">AOT</span></code> – Float. AOT at 550nm. ‘NIR’: calculate in T-Mart. ‘MERRA2’: use ancillary data (default).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AOT</span></code> – ‘MERRA2’: use ancillary data (default). Float: AOT at 550nm. ‘NIR’: calculate in T-Mart by finding dark pixels in NIR when considering the AE.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">n_photon</span></code> – Int. Number of photons in each T-Mart run, 100_000 is recommended for accurate results.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">AOT_offset</span></code> – Float. Value added to AOT at 550nm. If resulted AOT is negative, it will be corrected to 0.</p></li>
 </ul>
@@ -442,7 +442,7 @@ If 2 surfaces: the first background is the one closer to [0,0]</p>
 <span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;abcdef&#39;</span>
 <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;123456&#39;</span>
 
-<span class="c1">### Multiprocessing needs to be wrapped in &#39;if __name__ == &quot;__main__&quot;:&#39; for Windows systems, this is optional for Mac OS</span>
+<span class="c1">### Multiprocessing needs to be wrapped in &#39;if __name__ == &quot;__main__&quot;:&#39; for Windows systems</span>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">tmart</span><span class="o">.</span><span class="n">AEC</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 </pre></div>
