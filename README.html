@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code &mdash; T-Mart 2.4.1 documentation</title>
+  <title>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code &mdash; T-Mart 2.4.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=184e8d39" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css" />
@@ -16,7 +16,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=e9ebdb8f"></script>
+        <script src="_static/documentation_options.js?v=de1351e5"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -119,19 +119,12 @@ conda<span class="w"> </span>activate<span class="w"> </span>tmart
 <span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;abcdef&#39;</span>
 <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;123456&#39;</span>
 
-<span class="c1">### Multiprocessing needs to be wrapped in &#39;if __name__ == &quot;__main__&quot;:&#39; for Windows systems, this is optional for Unix-based systems</span>
+<span class="c1"># T-Mart uses multiprocessing, which needs to be wrapped in &#39;if __name__ == &quot;__main__&quot;:&#39; for Windows systems. This is optional for Unix-based systems</span>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">tmart</span><span class="o">.</span><span class="n">AEC</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The tool takes approximately 20 min to process a Landsat 8/9 scene and 30 min for a Sentinel-2 scene on an eight-core personal computer. See <a href="https://tmart-rtm.github.io/ins_aec.html" target="_blank">Instruction - Adjacency-Effect Correction</a> for detailed instructions.</p>
-</section>
-<section id="known-issue-s">
-<h2>Known issue(s)<a class="headerlink" href="#known-issue-s" title="Link to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">rasterio</span></code> version 1.3.11 leads to unprojected S2 image files when performing AE correction in Mac’s Terminal.</p>
-<ul class="simple">
-<li><p>Workarounds: run the code in an IDE, or downgrade to <code class="docutils literal notranslate"><span class="pre">rasterio</span></code> version 1.3.9 for terminal-based workflows.</p></li>
-</ul>
 </section>
 <section id="others">
 <h2>Others<a class="headerlink" href="#others" title="Link to this heading"></a></h2>
@@ -148,7 +141,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>tmart
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, Yulun Wu.</p>
+    <p>&#169; Copyright 2024, Yulun Wu.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
