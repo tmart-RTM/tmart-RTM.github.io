@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instruction - Adjacency-Effect Correction &mdash; T-Mart 2.4.1 documentation</title>
+  <title>Instruction - Adjacency-Effect Correction &mdash; T-Mart 2.4.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=184e8d39" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css" />
@@ -16,7 +16,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=e9ebdb8f"></script>
+        <script src="_static/documentation_options.js?v=de1351e5"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -91,14 +91,14 @@
 <section id="mininum-input">
 <h2>Mininum input<a class="headerlink" href="#mininum-input" title="Link to this heading"></a></h2>
 <p>The <em>AEC.run</em> function is used to perform adjacency-effect correction (AEC) in T-Mart. Correction is performed directly on level-1 products, and the output is adjacency-effect-free top-of-atmosphere products in the same format as the input level-1 products, therefore this workflow can be followed by any amtospheric correction tools. Currently it supports Sentinel-2 MSI, Landsat 8/9 OLI/OLI-2 and PRISMA imagery.</p>
-<p>NASA EarthData credentials are needed to retrieve ozone, water vapour, and aerosol optical thickness and composition for accurate AEC. You may need to approve OB.DAAC Data Access in your <a href="https://urs.earthdata.nasa.gov/profile" target="_blank">EarthData account</a>.</p>
+<p>NASA EarthData credentials are needed to retrieve ozone, water vapour, and aerosol optical thickness and composition for accurate AEC. You may need to approve OB.DAAC Data Access in your <a href="https://urs.earthdata.nasa.gov/profile" target="_blank">EarthData account</a>: click <em>Authorized Apps</em> under the <em>Applications</em> tab - click the <em>APPROVE MORE APPLICATIONS</em> button near the bottom, and authorize <em>OB.DAAC Data Access</em>.</p>
 <p>Minimum input to the <em>AEC.run</em> function includes a path to satellite files and EarthData credentials. See <a href="https://tmart-rtm.github.io/tmart.html#module-tmart.AEC.run" target="_blank">AEC.run Function</a> for all the arguments.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tmart</span>
 <span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;user/test/S2A_MSIL1C_20160812T143752_N0204_R096_T20MKB_20160812T143749.SAFE&#39;</span>
 <span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;abcdef&#39;</span>
 <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;123456&#39;</span>
 
-<span class="c1">### T-Mart uses multiprocessing, and this needs to be wrapped in &#39;if __name__ == &quot;__main__&quot;:&#39; for Windows users</span>
+<span class="c1"># T-Mart uses multiprocessing, which needs to be wrapped in &#39;if __name__ == &quot;__main__&quot;:&#39; for Windows users</span>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">tmart</span><span class="o">.</span><span class="n">AEC</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 </pre></div>
@@ -123,7 +123,8 @@
 </section>
 <section id="aec-configuration">
 <h2>AEC configuration<a class="headerlink" href="#aec-configuration" title="Link to this heading"></a></h2>
-<p>A TXT configuration file is stored in the <em>tmart</em> package folder. Brief descriptions are given in the file. Most of the configuration settings are tuned for best performance. In case a large amount of water pixels are falsely masked as land, <code class="docutils literal notranslate"><span class="pre">AE_land</span></code> can be set as True in order to perform AEC across the entire scene. Its path is printed in the Python console and the log file.</p>
+<p>A TXT configuration file is stored in the <em>tmart</em> package folder. Its path is printed in the Python console and the log file. Brief descriptions are given in the file. Most of the configuration settings are tuned for best performance.</p>
+<p>In case a large amount of water pixels are falsely masked as land, <code class="docutils literal notranslate"><span class="pre">mask_SWIR_threshold</span> </code> can be raised according to the water pixel values in the scene. Ultimately, <code class="docutils literal notranslate"><span class="pre">AE_land</span></code> can be set as True in order to perform AEC across the entire scene.</p>
 </section>
 <section id="additional-arguments">
 <h2>Additional arguments<a class="headerlink" href="#additional-arguments" title="Link to this heading"></a></h2>
@@ -155,7 +156,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2023, Yulun Wu.</p>
+    <p>&#169; Copyright 2024, Yulun Wu.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
