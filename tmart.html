@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parameters &mdash; T-Mart 2.4.2 documentation</title>
+  <title>Parameters &mdash; T-Mart 2.4.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=184e8d39" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css" />
@@ -16,7 +16,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=de1351e5"></script>
+        <script src="_static/documentation_options.js?v=7a6bd5fc"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -424,7 +424,7 @@ If 2 surfaces: the first background is the one closer to [0,0]</p>
 <span id="aec-run-function"></span><h2>AEC.run Function<a class="headerlink" href="#module-tmart.AEC.run" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="tmart.AEC.run.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AOT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MERRA2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_photon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AOT_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.AEC.run.run" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AOT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MERRA2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_photon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AOT_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.AEC.run.run" title="Link to this definition"></a></dt>
 <dd><p>Run adjacency-effect correction on satellite files. See ‘Introduction - Adjacency-Effect Correction’ for detailed instructions.</p>
 <p>Arguments:</p>
 <ul class="simple">
@@ -435,6 +435,7 @@ If 2 surfaces: the first background is the one closer to [0,0]</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">AOT</span></code> – ‘MERRA2’: use ancillary data (default). Float: AOT at 550nm. ‘NIR’: calculate in T-Mart by finding dark pixels in NIR when considering the AE.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">n_photon</span></code> – Int. Number of photons in each T-Mart run, 100_000 is recommended for accurate results.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">AOT_offset</span></code> – Float. Value added to AOT at 550nm. If resulted AOT is negative, it will be corrected to 0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_jobs</span></code> – Int. Number of jobs in Python multiprocessing. One CPU core processes one job at a time. The number of photons in one job is n_photon divided by the number of cores.</p></li>
 </ul>
 <p>Example usage:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tmart</span>
@@ -442,7 +443,7 @@ If 2 surfaces: the first background is the one closer to [0,0]</p>
 <span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;abcdef&#39;</span>
 <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;123456&#39;</span>
 
-<span class="c1">### Multiprocessing needs to be wrapped in &#39;if __name__ == &quot;__main__&quot;:&#39; for Windows systems</span>
+<span class="c1"># T-Mart uses multiprocessing, which needs to be wrapped in &#39;if __name__ == &quot;__main__&quot;:&#39; for Windows users</span>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">tmart</span><span class="o">.</span><span class="n">AEC</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 </pre></div>
