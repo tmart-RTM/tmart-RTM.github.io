@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parameters &mdash; T-Mart 2.4.4 documentation</title>
+  <title>Parameters &mdash; T-Mart 2.4.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=184e8d39" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css" />
@@ -16,13 +16,12 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=b1e24531"></script>
+        <script src="_static/documentation_options.js?v=7a6bd5fc"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Release Notes" href="release_notes.html" />
     <link rel="prev" title="Instruction - Modelling Sea-Surface Reflectance factor" href="ins_rho.html" /> 
 </head>
 
@@ -53,7 +52,17 @@
 <li class="toctree-l1"><a class="reference internal" href="ins_advanced.html">Instruction - Advanced Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ins_rho.html">Instruction - Modelling Sea-Surface Reflectance factor</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Parameters</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-tmart.Tmart">Tmart Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-tmart.Tmart">Tmart Class</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tmart.Tmart.Tmart"><code class="docutils literal notranslate"><span class="pre">Tmart</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tmart.Tmart.Tmart.run"><code class="docutils literal notranslate"><span class="pre">Tmart.run()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tmart.Tmart.Tmart.run_plot"><code class="docutils literal notranslate"><span class="pre">Tmart.run_plot()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tmart.Tmart.Tmart.set_geometry"><code class="docutils literal notranslate"><span class="pre">Tmart.set_geometry()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tmart.Tmart.Tmart.set_water"><code class="docutils literal notranslate"><span class="pre">Tmart.set_water()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tmart.Tmart.Tmart.set_wind"><code class="docutils literal notranslate"><span class="pre">Tmart.set_wind()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#module-tmart.Atmosphere">Atmosphere Class</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#tmart.Atmosphere.Atmosphere"><code class="docutils literal notranslate"><span class="pre">Atmosphere</span></code></a></li>
 </ul>
@@ -83,7 +92,6 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
 </ul>
 
         </div>
@@ -113,6 +121,10 @@
 <h1>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h1>
 <section id="module-tmart.Tmart">
 <span id="tmart-class"></span><h2>Tmart Class<a class="headerlink" href="#module-tmart.Tmart" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="tmart.Tmart.Tmart">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Tmart</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Atmosphere</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shadow</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">VROOM</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.Tmart.Tmart" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Tmart2</span></code></p>
 <p>Create a Tmart object that does radiative transfer modelling.</p>
 <p>Arguments:</p>
 <ul class="simple">
@@ -125,6 +137,124 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_tmart</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">Tmart</span><span class="p">(</span><span class="n">Surface</span> <span class="o">=</span> <span class="n">my_surface</span><span class="p">,</span> <span class="n">Atmosphere</span><span class="o">=</span> <span class="n">my_atm</span><span class="p">)</span>
 </pre></div>
 </div>
+<dl class="py method">
+<dt class="sig sig-object py" id="tmart.Tmart.Tmart.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_photon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">njobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">print_on</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_flux</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.Tmart.Tmart.run" title="Link to this definition"></a></dt>
+<dd><p>Run with multiple processing</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wl</span></code> – wavelength in nm.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">band</span></code> – overwrite <code class="docutils literal notranslate"><span class="pre">wl</span></code> with a 6S band object. We still need to specify <code class="docutils literal notranslate"><span class="pre">wl</span></code> because it is used in interpolating spectral SPF.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_photon</span></code> – number of photons to use in MC simulation, default 10,000.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nc</span></code> – number of CPU cores to use in multiprocessing, default automatic.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">njobs</span></code> – dividing the jobs into n portions in multiprocessing, default 80.</p></li>
+</ul>
+<p>Return:</p>
+<ul class="simple">
+<li><p>Movement information of photons.</p></li>
+</ul>
+<p>Example usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n_photon</span> <span class="o">=</span> <span class="mi">100_00</span>
+<span class="n">nc</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">njobs</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">my_tmart</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">wl</span><span class="o">=</span><span class="n">wl</span><span class="p">,</span> <span class="n">n_photon</span><span class="o">=</span><span class="n">n_photon</span><span class="p">,</span><span class="n">nc</span><span class="o">=</span> <span class="n">nc</span><span class="p">,</span><span class="n">njobs</span><span class="o">=</span> <span class="n">njobs</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tmart.Tmart.Tmart.run_plot">
+<span class="sig-name descname"><span class="pre">run_plot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wl</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">band</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_on</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">100000,</span> <span class="pre">0,</span> <span class="pre">100000,</span> <span class="pre">0,</span> <span class="pre">100000]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.Tmart.Tmart.run_plot" title="Link to this definition"></a></dt>
+<dd><p>Run a single photon and plot, print the details of photon movements. 
+To observe the photon movements, mostly for debugging purposes.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wl</span></code> – wavelength in nm.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">band</span></code> – overwrite <code class="docutils literal notranslate"><span class="pre">wl</span></code> with a 6S band object. We still need to specify <code class="docutils literal notranslate"><span class="pre">wl</span></code> because it is used in interpolating spectral SPF.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plot_on</span></code> – Boolean, if plot the movements.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plot_range</span></code> – List, [xmin, xmax, ymin, ymax, zmin, zmax]</p></li>
+</ul>
+<p>Return:</p>
+<ul class="simple">
+<li><p>Movement information of a photon.</p></li>
+</ul>
+<p>Example usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">my_tmart</span><span class="o">.</span><span class="n">run_plot</span><span class="p">(</span><span class="n">wl</span><span class="o">=</span><span class="n">wl</span><span class="p">,</span> <span class="n">plot_on</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">plot_range</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">100_000</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100_000</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">100_000</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tmart.Tmart.Tmart.set_geometry">
+<span class="sig-name descname"><span class="pre">set_geometry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sun_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_pt_direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensor_coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pixel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_coords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.Tmart.Tmart.set_geometry" title="Link to this definition"></a></dt>
+<dd><p>Set the sun-target-sensor geometry. Only one of <code class="docutils literal notranslate"><span class="pre">sensor_coords</span></code>, <code class="docutils literal notranslate"><span class="pre">pixel</span></code> and <code class="docutils literal notranslate"><span class="pre">target_coords</span></code> is needed.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">sun_dir</span></code> – Solar angle, in [Zenith, Azimuth], relative to the target.</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">target_pt_direction</span></code> – Photon’s initial moving direction’, AKA viewing angle, in [Zenith, Azimuth], relative to the sensor. </dt><dd><ul>
+<li><p>Alternative input: ‘lambertian_up’ or ‘lambertian_down’. This can only be used with <code class="docutils literal notranslate"><span class="pre">sensor_coords</span></code>. The initial direction will be a random direction up following a Lambertian distribution for each of the photons. This is used in calculating irradiance.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sensor_coords</span></code> – Where the sensor is, in [X, Y, Z], unit in meters.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pixel</span></code> – The target pixel to shoot photons. Parallel light rays will hit random points within the square pixel.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">target_coords</span></code> – Where the photon will land on the surface, only [X, Y] needed, [Z] is automatically adjusted.</p></li>
+</ul>
+<p>Example usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_tmart</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="n">sensor_coords</span><span class="o">=</span><span class="p">[</span><span class="mi">51</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">130_000</span><span class="p">],</span> 
+                      <span class="n">target_pt_direction</span><span class="o">=</span><span class="p">[</span><span class="mi">180</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                      <span class="n">sun_dir</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># sensor_coords can be replaced by pixel or target_coords</span>
+
+<span class="n">my_tmart</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="n">target_pt_direction</span><span class="o">=</span><span class="p">[</span><span class="mi">170</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                      <span class="n">target_coords</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">10</span><span class="p">],</span> 
+                      <span class="n">sun_dir</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>        
+
+<span class="n">my_tmart</span><span class="o">.</span><span class="n">set_geometry</span><span class="p">(</span><span class="n">target_pt_direction</span><span class="o">=</span><span class="p">[</span><span class="mi">170</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+                      <span class="n">pixel</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> 
+                      <span class="n">sun_dir</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>     
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tmart.Tmart.Tmart.set_water">
+<span class="sig-name descname"><span class="pre">set_water</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">water_salinity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">water_temperature</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">25</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.Tmart.Tmart.set_water" title="Link to this definition"></a></dt>
+<dd><p>Set water salinity and temperature.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">water_salinity</span></code> – water salinity in parts per thousand, default 0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">water_temperature</span></code> – water temperature in celsius, default 25.</p></li>
+</ul>
+<p>Example usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_tmart</span><span class="o">.</span><span class="n">set_water</span><span class="p">(</span><span class="n">water_salinity</span><span class="o">=</span><span class="mi">35</span><span class="p">,</span> <span class="n">water_temperature</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tmart.Tmart.Tmart.set_wind">
+<span class="sig-name descname"><span class="pre">set_wind</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wind_speed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wind_azi_avg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wind_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.Tmart.Tmart.set_wind" title="Link to this definition"></a></dt>
+<dd><p>Set wind speed and direction.</p>
+<p>Arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">wind_speed</span></code> – wind speed in meters, default 10.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wind_azi_avg</span></code> – cox-munk slopes azimuthally averaged, default True.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">wind_dir</span></code> – upwind direction clockwise from east, default 0. Meaningless when wind_azi_avg is True.</p></li>
+</ul>
+<p>Example usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">my_tmart</span><span class="o">.</span><span class="n">set_wind</span><span class="p">(</span><span class="n">wind_speed</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">my_tmart</span><span class="o">.</span><span class="n">set_wind</span><span class="p">(</span><span class="n">wind_speed</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">wind_azi_avg</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">wind_dir</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">my_tmart</span><span class="o">.</span><span class="n">set_wind</span><span class="p">(</span><span class="n">wind_speed</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">wind_azi_avg</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-tmart.Atmosphere">
 <span id="atmosphere-class"></span><h2>Atmosphere Class<a class="headerlink" href="#module-tmart.Atmosphere" title="Link to this heading"></a></h2>
@@ -298,7 +428,7 @@ If 2 surfaces: the first background is the one closer to [0,0]</p>
 <dd><p>Run adjacency-effect correction on satellite files. See ‘Introduction - Adjacency-Effect Correction’ for detailed instructions.</p>
 <p>Arguments:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">file</span></code> – String. Path to satellite files. For L8/S2: provide path to the folder. For PRISMA: provide ACOLITE L1R file. SAFE.zip for S2 is supported: when doing so it is recommended to set <code class="docutils literal notranslate"><span class="pre">overwrite</span></code> as True to save space.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file</span></code> – String. Path to satellite files. For L8/S2: provide path to the folder. For PRISMA: provide ACOLITE L1R file.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">username</span></code> – String. Username of EarthData account.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">password</span></code> – String. Password of EarthData account.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">overwrite</span></code> – Boolean. If overwrite the existing files. The default is False and it creates a folder in the same directory that starts with AEC in the name</p></li>
@@ -328,7 +458,6 @@ If 2 surfaces: the first background is the one closer to [0,0]</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="ins_rho.html" class="btn btn-neutral float-left" title="Instruction - Modelling Sea-Surface Reflectance factor" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="release_notes.html" class="btn btn-neutral float-right" title="Release Notes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
