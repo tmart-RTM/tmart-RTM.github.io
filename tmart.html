@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parameters &mdash; T-Mart 2.4.5 documentation</title>
+  <title>Parameters &mdash; T-Mart 2.4.6 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=184e8d39" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css" />
@@ -16,7 +16,7 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=159ac128"></script>
+        <script src="_static/documentation_options.js?v=22624b42"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -305,7 +305,7 @@ If 2 surfaces: the first background is the one closer to [0,0]</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">AOT</span></code> – ‘MERRA2’: use ancillary data (default). Float: AOT at 550nm. ‘NIR’: calculate in T-Mart by finding dark pixels in NIR when considering the AE.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">n_photon</span></code> – Int. Number of photons in each T-Mart run, 100_000 is recommended for accurate results.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">AOT_offset</span></code> – Float. Value added to AOT at 550nm. If resulted AOT is negative, it will be corrected to 0.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">n_jobs</span></code> – Int. Number of jobs in Python multiprocessing. One CPU core processes one job at a time. The number of photons in one job is n_photon divided by the number of cores.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_jobs</span></code> – Int. Number of jobs in Python multiprocessing. One CPU core processes one job at a time. n_photon is evenly distributed across the jobs.</p></li>
 </ul>
 <p>Example usage:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tmart</span>
