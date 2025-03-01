@@ -1,24 +1,22 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instruction - Modelling Sea-Surface Reflectance factor &mdash; T-Mart 2.4.11 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=184e8d39" />
+  <title>Instruction - Modelling Sea-Surface Reflectance factor &mdash; T-Mart 2.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=401c948e" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=a2a8b92e"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=3c4615cf"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -86,7 +84,7 @@
 <h1>Instruction - Modelling Sea-Surface Reflectance factor<a class="headerlink" href="#instruction-modelling-sea-surface-reflectance-factor" title="Link to this heading"></a></h1>
 <p>The sea-surface reflectance factor, <em>ρ</em>, is used to remove skyglint and sunglint from above-water measurements of water’s reflectance.</p>
 <p>To calculate <em>ρ</em> with a solar zenith angle of 30°, viewing zenith angle of 40° and a relative azimuth angle of 135°:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tmart</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tmart</span>
 <span class="n">rho</span> <span class="o">=</span> <span class="n">tmart</span><span class="o">.</span><span class="n">surface_rho</span><span class="o">.</span><span class="n">calculate</span><span class="p">(</span><span class="n">wl</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">viewing_zenith</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">solar_zenith</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">relative_azimuth</span><span class="o">=</span><span class="mi">135</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">rho</span><span class="p">)</span>
 </pre></div>

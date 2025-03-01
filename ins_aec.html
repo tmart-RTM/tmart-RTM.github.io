@@ -1,24 +1,22 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instruction - Adjacency-Effect Correction &mdash; T-Mart 2.4.11 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=184e8d39" />
+  <title>Instruction - Adjacency-Effect Correction &mdash; T-Mart 2.5.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=401c948e" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=a2a8b92e"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=3c4615cf"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -54,7 +52,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#ancillary-and-log-files">Ancillary and log files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#aec-configuration">AEC configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#additional-arguments">Additional arguments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#assumptions-in-the-processing">Assumptions in the processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#assumptions-in-aec">Assumptions in AEC</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ins_basic.html">Instruction - Basic Modelling</a></li>
@@ -94,7 +92,7 @@
 <p>The <em>AEC.run</em> function is used to perform adjacency-effect correction (AEC) in T-Mart. Correction is performed directly on level-1 products, and the output is adjacency-effect-free top-of-atmosphere products in the same format as the input level-1 products, therefore this workflow can be followed by any amtospheric correction tools. Currently it supports Sentinel-2 MSI, Landsat 8/9 OLI/OLI-2 and PRISMA imagery.</p>
 <p>NASA EarthData credentials are needed to retrieve ozone, water vapour, and aerosol optical thickness and composition for accurate AEC. You may need to approve OB.DAAC Data Access in your <a href="https://urs.earthdata.nasa.gov/profile" target="_blank">EarthData account</a>: click <em>Authorized Apps</em> under the <em>Applications</em> tab - click the <em>APPROVE MORE APPLICATIONS</em> button near the bottom, and authorize <em>OB.DAAC Data Access</em>.</p>
 <p>Minimum input to the <em>AEC.run</em> function includes a path to satellite files and EarthData credentials. See <a href="https://tmart-rtm.github.io/tmart.html#module-tmart.AEC.run" target="_blank">AEC.run Function</a> for all the arguments.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tmart</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tmart</span>
 <span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;user/test/S2A_MSIL1C_20160812T143752_N0204_R096_T20MKB_20160812T143749.SAFE&#39;</span>
 <span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;abcdef&#39;</span>
 <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;123456&#39;</span>
@@ -120,26 +118,27 @@
 <li><p><strong>tmart_atm_info_*.txt</strong>: atmosphere and aerosol information used in the processing. This includes aerosol type, angstrom exponent, single scattering albedo, AOT at 550 nm, total column ozone, and total precipitable water vapour.</p></li>
 <li><p><strong>tmart_ancillary/*.nc</strong>: GMAO MERRA2 ancillary files from the NASA Ocean Biology Processing Group.</p></li>
 <li><p><strong>tmart_completed.txt</strong>: a record of bands that have been corrected for the adjacency effect.</p></li>
+<li><p><strong>tmart_preview.txt</strong>: a image preview of pixels identified as water (only run when <code class="docutils literal notranslate"><span class="pre">AE_land</span></code> is False).</p></li>
 </ul>
 </section>
 <section id="aec-configuration">
 <h2>AEC configuration<a class="headerlink" href="#aec-configuration" title="Link to this heading"></a></h2>
 <p>A TXT configuration file is stored in the <em>tmart</em> package folder. Its path is printed in the Python console and the log file. Brief descriptions are given in the file. Most of the configuration settings are tuned for best performance.</p>
-<p>By default, T-Mart identifies water pixels and only modify their values, leaving land pixel values unchanged. In case a significant number of water pixels are falsely masked as land, the <code class="docutils literal notranslate"><span class="pre">mask_SWIR_threshold</span></code> can be increased based on the water pixel values in the scene. Alternatively, setting <code class="docutils literal notranslate"><span class="pre">AE_land</span></code> to True enables AEC across the entire scene.</p>
+<p>By default, T-Mart identifies water pixels and only modify their values, leaving land pixel values unchanged to facilitate the existing calibration of atmospheric correction processors that extract information from land pixels. In case a significant number of water pixels are falsely masked as land, the <code class="docutils literal notranslate"><span class="pre">mask_SWIR_threshold</span></code> (default value: 0.03) can be increased based on the water pixel values in the scene. Modifying <code class="docutils literal notranslate"><span class="pre">mask_SWIR_threshold</span></code> in the <em>AEC.run</em> function overwrites the value in config.txt. Alternatively, setting <code class="docutils literal notranslate"><span class="pre">AE_land</span></code> to True enables AEC across the entire scene.</p>
 </section>
 <section id="additional-arguments">
 <h2>Additional arguments<a class="headerlink" href="#additional-arguments" title="Link to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">AOT</span></code> and <code class="docutils literal notranslate"><span class="pre">n_photon</span></code> can be specified manually. You can specify <code class="docutils literal notranslate"><span class="pre">AOT</span></code> if you are certain about its value or simply to test the impact of using different values. <code class="docutils literal notranslate"><span class="pre">n_photon</span></code> is the number of photons used in each T-Mart run; the default value of 100,000 is recommended for accurate results. It can be reduced to 10,000 for quicker computation.</p>
+<p><code class="docutils literal notranslate"><span class="pre">AOT</span></code> and <code class="docutils literal notranslate"><span class="pre">n_photon</span></code> can be specified manually. <code class="docutils literal notranslate"><span class="pre">AOT</span></code> is the aerosol optical thickness at 550 nm, you can specify it if you are certain about its value or simply to test the impact of using different values. <code class="docutils literal notranslate"><span class="pre">n_photon</span></code> is the number of photons used in each T-Mart run; the default value of 100,000 is recommended for accurate results. It can be reduced to 10,000 for quicker computation.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tmart</span><span class="o">.</span><span class="n">AEC</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">AOT</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">n_photon</span> <span class="o">=</span> <span class="mi">10_000</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
-<section id="assumptions-in-the-processing">
-<h2>Assumptions in the processing<a class="headerlink" href="#assumptions-in-the-processing" title="Link to this heading"></a></h2>
+<section id="assumptions-in-aec">
+<h2>Assumptions in AEC<a class="headerlink" href="#assumptions-in-aec" title="Link to this heading"></a></h2>
 <p>A few assumptions are made in the processing, violations can lead to various degrees of errors in the output AE-free product:</p>
 <ul class="simple">
 <li><p>Isotropic/Lambertian surface</p></li>
-<li><p>Vertically stratified but horizontally homogeneous atmosphere and aerosols across the scene</p></li>
+<li><p>Vertically stratified but horizontally homogeneous atmospheric molecules and aerosols across the scene</p></li>
 <li><p>Flat surface or lack of topography</p></li>
 </ul>
 <p>See <a href="https://tmart-rtm.github.io/tmart.html#module-tmart.AEC.run" target="_blank">AEC.run Function</a> for all the arguments.</p>
