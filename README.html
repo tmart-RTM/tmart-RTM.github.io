@@ -49,6 +49,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ins_advanced.html">Instruction - Advanced Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ins_rho.html">Instruction - Modelling Sea-Surface Reflectance factor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tmart.html">Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publications.html">Publications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
 </ul>
 
@@ -77,6 +78,9 @@
              
   <section id="t-mart-topography-adjusted-monte-carlo-adjacency-effect-radiative-transfer-code">
 <h1>T-Mart: Topography-adjusted Monte-carlo Adjacency-effect Radiative Transfer Code<a class="headerlink" href="#t-mart-topography-adjusted-monte-carlo-adjacency-effect-radiative-transfer-code" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://pypi.org/project/tmart/"><img alt="PyPI version" src="https://badge.fury.io/py/tmart.svg" /></a>
+<a class="reference download internal" download="" href="_downloads/98cd14c95bb22f9d397da0603a77d950/license.txt"><span class="xref download myst"><img alt="License: GPL v3" src="https://img.shields.io/badge/License-GPLv3-blue.svg" /></span></a>
+<a class="reference external" href="https://tmart-rtm.github.io"><img alt="Docs" src="https://img.shields.io/badge/docs-online-blue.svg" /></a></p>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
 <p>T-Mart solves radiative transfer in a 3D surface-atmosphere system. It supports customizable surface models and enables simulation and correction for the adjacency effect (AE) in optical aquatic remote sensing. AE correction substantially improves satellite-based retrieval of water-leaving reflectance in nearshore environments (Wu et al., 2024).</p>
@@ -85,11 +89,6 @@
 <h2>Links<a class="headerlink" href="#links" title="Link to this heading"></a></h2>
 <p>Home page: <a href="https://github.com/yulunwu8/tmart" target="_blank">https://github.com/yulunwu8/tmart</a></p>
 <p>User guide: <a href="https://tmart-rtm.github.io" target="_blank">https://tmart-rtm.github.io</a></p>
-</section>
-<section id="publications">
-<h2>Publications<a class="headerlink" href="#publications" title="Link to this heading"></a></h2>
-<p>Wu, Y., Knudby, A., &amp; Lapen, D. (2023). Topography-adjusted Monte Carlo simulation of the adjacency effect in remote sensing of coastal and inland waters. <em>Journal of Quantitative Spectroscopy and Radiative Transfer</em>, 108589. <a href="https://doi.org/10.1016/j.jqsrt.2023.108589" target="_blank">https://doi.org/10.1016/j.jqsrt.2023.108589</a></p>
-<p>Wu, Y., Knudby, A., Pahlevan, N., Lapen, D., &amp; Zeng, C. (2024). Sensor-generic adjacency-effect correction for remote sensing of coastal and inland waters. <em>Remote Sensing of Environment</em>, 315, 114433. <a href="https://doi.org/10.1016/j.rse.2024.114433" target="_blank">https://doi.org/10.1016/j.rse.2024.114433</a></p>
 </section>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
@@ -109,7 +108,7 @@ conda<span class="w"> </span>activate<span class="w"> </span>tmart
 </section>
 <section id="quick-start-adjacency-effect-correction">
 <h2>Quick start: adjacency-effect correction<a class="headerlink" href="#quick-start-adjacency-effect-correction" title="Link to this heading"></a></h2>
-<p>T-Mart supports AE correction for Sentinel-2 MSI and Landsat 8/9 OLI/OLI-2 products. Correction is performed directly on level-1 products and can be followed by any amtospheric correction tools.</p>
+<p>T-Mart supports AE correction for Sentinel-2 MSI and Landsat 8/9 OLI/OLI-2 products. Correction is performed directly on level-1 products and can be followed by any atmospheric correction tools.</p>
 <p>Minimal input:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tmart</span>
 <span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;user/test/S2A_MSIL1C_20160812T143752_N0204_R096_T20MKB_20160812T143749.SAFE&#39;</span>
@@ -118,18 +117,29 @@ conda<span class="w"> </span>activate<span class="w"> </span>tmart
 <span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;abcdef&#39;</span>
 <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;123456&#39;</span>
 
-<span class="c1"># T-Mart uses multiprocessing, which needs to be wrapped in &#39;if __name__ == &quot;__main__&quot;:&#39; for Windows systems. This is optional for Unix-based systems</span>
+<span class="c1"># T-Mart uses multiprocessing, which must be wrapped in &#39;if __name__ == &quot;__main__&quot;:&#39; for Windows systems. This is optional for Unix-based systems</span>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">tmart</span><span class="o">.</span><span class="n">AEC</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The tool takes approximately 20 min to process a Landsat 8/9 scene and 30 min for a Sentinel-2 scene on an eight-core personal computer. See <a href="https://tmart-rtm.github.io/ins_aec.html" target="_blank">Instruction - Adjacency-Effect Correction</a> for detailed instructions.</p>
+<p>The tool takes approximately 20 min to process a Landsat 8/9 scene and 30 min for a Sentinel-2 scene on an 8-core personal computer. See <a href="https://tmart-rtm.github.io/ins_aec.html" target="_blank">Instruction - Adjacency-Effect Correction</a> for detailed instructions.</p>
 <p>Video tutorials:</p>
 <p><a href="https://youtube.com/playlist?list=PLzHfjrsxuGd0LnpNDYCqbo9PEnit9fDeT&si=ebnYU7Lq-OJSVtWJ" target="_blank"><img src="files/playlist.png"  width="300"></a></p>
 </section>
+<section id="publications">
+<h2>Publications<a class="headerlink" href="#publications" title="Link to this heading"></a></h2>
+<p><strong>Primary references</strong></p>
+<p>Wu, Y., Knudby, A., &amp; Lapen, D. (2023). Topography-adjusted Monte Carlo simulation of the adjacency effect in remote sensing of coastal and inland waters. <em>Journal of Quantitative Spectroscopy and Radiative Transfer</em>, 108589. <a href="https://doi.org/10.1016/j.jqsrt.2023.108589" target="_blank">https://doi.org/10.1016/j.jqsrt.2023.108589</a></p>
+<p>Wu, Y., Knudby, A., Pahlevan, N., Lapen, D., &amp; Zeng, C. (2024). Sensor-generic adjacency-effect correction for remote sensing of coastal and inland waters. <em>Remote Sensing of Environment</em>, 315, 114433. <a href="https://doi.org/10.1016/j.rse.2024.114433" target="_blank">https://doi.org/10.1016/j.rse.2024.114433</a></p>
+<p><strong>Studies using T-Mart</strong></p>
+<p>🔗 <a class="reference external" href="https://tmart-rtm.github.io/publications.html">List of publications</a></p>
+</section>
+<section id="funding">
+<h2>Funding<a class="headerlink" href="#funding" title="Link to this heading"></a></h2>
+<p>T-Mart was funded by the Canadian Space Agency (Grant 22AO2-LIQU to Liquid Geomatics Ltd.) and Agriculture and Agri-Food Canada (Grants J-001839 and J-002305 to D.R. Lapen).</p>
+</section>
 <section id="others">
 <h2>Others<a class="headerlink" href="#others" title="Link to this heading"></a></h2>
-<p>T-Mart can calculate reflectances of various units, see Table 1 in Wu et al. (2023) for examples.</p>
 <p>For questions and suggestions (which I’m always open to!), please open an issue or email Yulun at <a class="reference external" href="mailto:yulunwu8&#37;&#52;&#48;gmail&#46;com">yulunwu8<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
 </section>
 </section>

@@ -53,12 +53,15 @@
 <li class="toctree-l2"><a class="reference internal" href="#aec-configuration">AEC configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#additional-arguments">Additional arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#assumptions-in-aec">Assumptions in AEC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prisma-image-processing">PRISMA image processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#video-tutorials">Video tutorials</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ins_basic.html">Instruction - Basic Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ins_advanced.html">Instruction - Advanced Modelling</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ins_rho.html">Instruction - Modelling Sea-Surface Reflectance factor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tmart.html">Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publications.html">Publications</a></li>
 <li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release Notes</a></li>
 </ul>
 
@@ -87,8 +90,6 @@
              
   <section id="instruction-adjacency-effect-correction">
 <h1>Instruction - Adjacency-Effect Correction<a class="headerlink" href="#instruction-adjacency-effect-correction" title="Link to this heading"></a></h1>
-<p>Video tutorials:</p>
-<p><a href="https://youtube.com/playlist?list=PLzHfjrsxuGd0LnpNDYCqbo9PEnit9fDeT&si=ebnYU7Lq-OJSVtWJ" target="_blank"><img src="_images/playlist.png"  width="300"></a></p>
 <section id="mininum-input">
 <h2>Mininum input<a class="headerlink" href="#mininum-input" title="Link to this heading"></a></h2>
 <p>The <em>AEC.run</em> function is used to perform adjacency-effect correction (AEC) in T-Mart. Correction is performed directly on level-1 products, and the output is adjacency-effect-free top-of-atmosphere products in the same format as the input level-1 products, therefore this workflow can be followed by any amtospheric correction tools. Currently it supports Sentinel-2 MSI, Landsat 8/9 OLI/OLI-2 and PRISMA imagery.</p>
@@ -99,7 +100,7 @@
 <span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;abcdef&#39;</span>
 <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;123456&#39;</span>
 
-<span class="c1"># T-Mart uses multiprocessing, which needs to be wrapped in &#39;if __name__ == &quot;__main__&quot;:&#39; for Windows users. This is optional for Unix-based systems</span>
+<span class="c1"># T-Mart uses multiprocessing, which must be wrapped in &#39;if __name__ == &quot;__main__&quot;:&#39; for Windows users. This is optional for Unix-based systems</span>
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">tmart</span><span class="o">.</span><span class="n">AEC</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
 </pre></div>
@@ -144,6 +145,14 @@
 <li><p>Flat surface or lack of topography</p></li>
 </ul>
 <p>See <a href="https://tmart-rtm.github.io/tmart.html#module-tmart.AEC.run" target="_blank">AEC.run Function</a> for all the arguments.</p>
+</section>
+<section id="prisma-image-processing">
+<h2>PRISMA image processing<a class="headerlink" href="#prisma-image-processing" title="Link to this heading"></a></h2>
+<p>T-Mart supports AE correction for ACOLITE-generated L1R PRISMA files. The modified L1R files from T-Mart can then be reprocessed in ACOLITE for atmospheric correction.</p>
+</section>
+<section id="video-tutorials">
+<h2>Video tutorials<a class="headerlink" href="#video-tutorials" title="Link to this heading"></a></h2>
+<p><a href="https://youtube.com/playlist?list=PLzHfjrsxuGd0LnpNDYCqbo9PEnit9fDeT&si=ebnYU7Lq-OJSVtWJ" target="_blank"><img src="_images/playlist.png"  width="300"></a></p>
 </section>
 </section>
 
