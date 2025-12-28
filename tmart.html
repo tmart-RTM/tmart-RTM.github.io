@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parameters &mdash; T-Mart 2.5.2 documentation</title>
+  <title>Parameters &mdash; T-Mart 2.5.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=401c948e" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=afc61bbc"></script>
+      <script src="_static/documentation_options.js?v=0bbe9fa5"></script>
       <script src="_static/doctools.js?v=9a2dae69"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -293,19 +293,20 @@ If 2 surfaces: the first background is the one closer to [0,0]</p>
 <span id="aec-run-function"></span><h2>AEC.run Function<a class="headerlink" href="#module-tmart.AEC.run" title="Link to this heading"></a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="tmart.AEC.run.run">
-<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AOT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MERRA2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_photon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AOT_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_SWIR_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.AEC.run.run" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">username</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AOT</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'MERRA2'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_photon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AOT_offset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_jobs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mask_SWIR_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">atm_info_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tmart.AEC.run.run" title="Link to this definition"></a></dt>
 <dd><p>Run adjacency-effect correction on satellite files. See ‘Introduction - Adjacency-Effect Correction’ for detailed instructions.</p>
 <p>Arguments:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">file</span></code> – String. Path to satellite files. For L8: provide path to the folder. For S2: provide path to the folder or zip file. For PRISMA: provide ACOLITE L1R file.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">username</span></code> – String. Username of EarthData account.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">password</span></code> – String. Password of EarthData account.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">username</span></code> – String. Username of EarthData account (required unless <code class="docutils literal notranslate"><span class="pre">atm_info_file</span></code> is provided).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">password</span></code> – String. Password of EarthData account (required unless <code class="docutils literal notranslate"><span class="pre">atm_info_file</span></code> is provided).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">overwrite</span></code> – Boolean. If overwrite the existing files. The default is False and it creates a folder in the same directory that starts with AEC in the name</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">AOT</span></code> – ‘MERRA2’: use ancillary data (default). Float: AOT at 550nm. ‘NIR’: calculate in T-Mart by finding dark pixels in NIR when considering the AE.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">n_photon</span></code> – Int. Number of photons in each T-Mart run, 100_000 is recommended for accurate results.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">AOT_offset</span></code> – Float. Value added to AOT at 550nm. If resulted AOT is negative, it will be corrected to 0.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">n_jobs</span></code> – Int. Number of jobs in Python multiprocessing. One CPU core processes one job at a time. n_photon is evenly distributed across the jobs.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">mask_SWIR_threshold</span></code> – Float. Reflectance threshold in a SWIR band used to mask non-water pixels in the processing. If specified, this overwrites the value in config.txt.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">atm_info_file</span></code> – String. Path to a tmart_atm_info_*.txt file. When provided, T-Mart skips downloading ancillary data and reads aerosol/atmosphere information from this file.</p></li>
 </ul>
 <p>Example usage:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">tmart</span>
