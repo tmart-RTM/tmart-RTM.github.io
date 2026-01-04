@@ -16,6 +16,8 @@ Hu, Y., Zhan, H., He, Q., & Zhan, W. (2025). Assessment of Atmospheric Correctio
 
 Lion, V., Robran, B., Kroth, F., & Oppelt, N. (2025). The adjacency effect in optical remote sensing: A review on emergence, implications, and corrections for aquatic high-contrast environments. *Science of The Total Environment*, 1004, 180769. <a href="https://doi.org/10.1016/j.scitotenv.2025.180769" target="_blank">https://doi.org/10.1016/j.scitotenv.2025.180769</a>
 
+Ansari, M., Wu, Y., & Knudby, A. (2025). Assessing the Impact of T-Mart Adjacency Effect Correction on Turbidity Retrieval from Landsat 8/9 and Sentinel-2 Imagery (Case Study: St. Lawrence River, Canada). Remote Sensing, 18(1), 127. <a href="https://doi.org/10.3390/rs18010127" target="_blank">https://doi.org/10.3390/rs18010127</a>
+
 Xu, J., Cao, Z., Chen, P., & Duan, H. (2025). Assessment of land adjacency effect correction on deriving aquatic reflectance over river waters from Landsat-8/9 and Sentinel-2 imagery. *Optics Express*, 33(21), 43561. <a href="https://doi.org/10.1364/OE.572553" target="_blank">https://doi.org/10.1364/OE.572553</a>
 
 
