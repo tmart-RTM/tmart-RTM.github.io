@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instruction - Adjacency-Effect Correction &mdash; T-Mart 2.5.3 documentation</title>
+  <title>Instruction - Adjacency-Effect Correction &mdash; T-Mart 2.6.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=401c948e" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=0bbe9fa5"></script>
+      <script src="_static/documentation_options.js?v=0a414f3d"></script>
       <script src="_static/doctools.js?v=9a2dae69"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -51,6 +51,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#overwrite-existing-files">Overwrite existing files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ancillary-and-log-files">Ancillary and log files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#aec-configuration">AEC configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#identify-water-extent">Identify water extent</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#additional-arguments">Additional arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#user-input-atmospheric-information">User-input atmospheric information</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#assumptions-in-aec">Assumptions in AEC</a></li>
@@ -128,7 +129,13 @@
 <section id="aec-configuration">
 <h2>AEC configuration<a class="headerlink" href="#aec-configuration" title="Link to this heading"></a></h2>
 <p>A TXT configuration file is stored in the <em>tmart</em> package folder. Its path is printed in the Python console and the log file. Brief descriptions are given in the file. Most of the configuration settings are tuned for best performance.</p>
-<p>By default, T-Mart identifies water pixels and only modify their values, leaving land pixel values unchanged to facilitate the existing calibration of atmospheric correction processors that extract information from land pixels. In case a significant number of water pixels are falsely masked as land, the <code class="docutils literal notranslate"><span class="pre">mask_SWIR_threshold</span></code> (the reflectance threshold in a SWIR band used to mask non-water pixels; default value: 0.03) can be increased based on the water pixel values in the scene. Modifying <code class="docutils literal notranslate"><span class="pre">mask_SWIR_threshold</span></code> in the <em>AEC.run</em> function overwrites the value in config.txt. Alternatively, setting <code class="docutils literal notranslate"><span class="pre">AE_land</span></code> to True enables AEC across the entire scene.</p>
+</section>
+<section id="identify-water-extent">
+<h2>Identify water extent<a class="headerlink" href="#identify-water-extent" title="Link to this heading"></a></h2>
+<p>By default, T-Mart identifies water pixels and only modify their values, leaving land pixel values unchanged to facilitate the existing calibration of atmospheric correction processors that extract information from land pixels.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">water_detection_method</span> <span class="pre">=</span> <span class="pre">NDWI</span></code> in <code class="docutils literal notranslate"><span class="pre">config.txt</span></code>, water identification is based on the normalized difference between the green and NIR bands. The green and NIR bands are configurable in <code class="docutils literal notranslate"><span class="pre">config.txt</span></code>, and can be swapped to use any normalized difference. Pixels with NDWI values lower than <code class="docutils literal notranslate"><span class="pre">mask_NDWI_threshold</span></code> are treated as non-water, and the default value is 0. Adjust this threshold if needed based on the scene’s water/land separation.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">water_detection_method</span> <span class="pre">=</span> <span class="pre">SWIR</span></code>, water pixels are identified as the SWIR band reflectance lower than the threshold <code class="docutils literal notranslate"><span class="pre">mask_SWIR_threshold</span></code> (default value: 0.03). Increase this value if a significant number of water pixels are falsely masked as land.</p>
+<p>Both <code class="docutils literal notranslate"><span class="pre">mask_SWIR_threshold</span></code> or <code class="docutils literal notranslate"><span class="pre">mask_NDWI_threshold</span></code> can be adjusted in <code class="docutils literal notranslate"><span class="pre">config.txt</span></code>. Modifying <code class="docutils literal notranslate"><span class="pre">mask_SWIR_threshold</span></code> in the <em>AEC.run</em> function overwrites the value in <code class="docutils literal notranslate"><span class="pre">config.txt</span></code>. Alternatively, setting <code class="docutils literal notranslate"><span class="pre">AE_land</span></code> to True enables AEC across the entire scene.</p>
 </section>
 <section id="additional-arguments">
 <h2>Additional arguments<a class="headerlink" href="#additional-arguments" title="Link to this heading"></a></h2>
