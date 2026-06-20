@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Instruction - Adjacency-Effect Correction &mdash; T-Mart 2.6.1 documentation</title>
+  <title>Instruction - Adjacency-Effect Correction &mdash; T-Mart 2.6.3 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=401c948e" />
       <link rel="stylesheet" type="text/css" href="_static/custom.css" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=0a414f3d"></script>
+      <script src="_static/documentation_options.js?v=99c1414e"></script>
       <script src="_static/doctools.js?v=9a2dae69"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
@@ -135,7 +135,7 @@
 <p>By default, T-Mart identifies water pixels and only modify their values, leaving land pixel values unchanged to facilitate the existing calibration of atmospheric correction processors that extract information from land pixels.</p>
 <p>When <code class="docutils literal notranslate"><span class="pre">water_detection_method</span> <span class="pre">=</span> <span class="pre">NDWI</span></code> in <code class="docutils literal notranslate"><span class="pre">config.txt</span></code>, water identification is based on the normalized difference between the green and NIR bands. The green and NIR bands are configurable in <code class="docutils literal notranslate"><span class="pre">config.txt</span></code>, and can be swapped to use any normalized difference. Pixels with NDWI values lower than <code class="docutils literal notranslate"><span class="pre">mask_NDWI_threshold</span></code> are treated as non-water, and the default value is 0. Adjust this threshold if needed based on the scene’s water/land separation.</p>
 <p>When <code class="docutils literal notranslate"><span class="pre">water_detection_method</span> <span class="pre">=</span> <span class="pre">SWIR</span></code>, water pixels are identified as the SWIR band reflectance lower than the threshold <code class="docutils literal notranslate"><span class="pre">mask_SWIR_threshold</span></code> (default value: 0.03). Increase this value if a significant number of water pixels are falsely masked as land.</p>
-<p>Both <code class="docutils literal notranslate"><span class="pre">mask_SWIR_threshold</span></code> or <code class="docutils literal notranslate"><span class="pre">mask_NDWI_threshold</span></code> can be adjusted in <code class="docutils literal notranslate"><span class="pre">config.txt</span></code>. Modifying <code class="docutils literal notranslate"><span class="pre">mask_SWIR_threshold</span></code> in the <em>AEC.run</em> function overwrites the value in <code class="docutils literal notranslate"><span class="pre">config.txt</span></code>. Alternatively, setting <code class="docutils literal notranslate"><span class="pre">AE_land</span></code> to True enables AEC across the entire scene.</p>
+<p>Both <code class="docutils literal notranslate"><span class="pre">mask_NDWI_threshold</span></code> or <code class="docutils literal notranslate"><span class="pre">mask_SWIR_threshold</span></code> can be adjusted in <code class="docutils literal notranslate"><span class="pre">config.txt</span></code>. Modifying <code class="docutils literal notranslate"><span class="pre">mask_NDWI_threshold</span></code> or <code class="docutils literal notranslate"><span class="pre">mask_SWIR_threshold</span></code> in the <em>AEC.run</em> function overwrites the corresponding value in <code class="docutils literal notranslate"><span class="pre">config.txt</span></code>. Alternatively, setting <code class="docutils literal notranslate"><span class="pre">AE_land</span></code> to True enables AEC across the entire scene.</p>
 </section>
 <section id="additional-arguments">
 <h2>Additional arguments<a class="headerlink" href="#additional-arguments" title="Link to this heading"></a></h2>
@@ -143,6 +143,7 @@
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tmart</span><span class="o">.</span><span class="n">AEC</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">AOT</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">n_photon</span> <span class="o">=</span> <span class="mi">10_000</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>See <a href="https://tmart-rtm.github.io/tmart.html#module-tmart.AEC.run" target="_blank">AEC.run Function</a> for all the arguments.</p>
 </section>
 <section id="user-input-atmospheric-information">
 <h2>User-input atmospheric information<a class="headerlink" href="#user-input-atmospheric-information" title="Link to this heading"></a></h2>
@@ -178,7 +179,6 @@
 <li><p>Vertically stratified but horizontally homogeneous atmospheric molecules and aerosols across the scene</p></li>
 <li><p>Flat surface or lack of topography</p></li>
 </ul>
-<p>See <a href="https://tmart-rtm.github.io/tmart.html#module-tmart.AEC.run" target="_blank">AEC.run Function</a> for all the arguments.</p>
 </section>
 <section id="prisma-image-processing">
 <h2>PRISMA image processing<a class="headerlink" href="#prisma-image-processing" title="Link to this heading"></a></h2>
